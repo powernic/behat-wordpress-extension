@@ -18,7 +18,7 @@
       
         <link rel="shortcut icon" href="../../img/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.8.1">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.10.1">
     
     
       
@@ -26,12 +26,12 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-bfecc7305d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-a20f419c8e.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-02c2a4388f.palette.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
       
     
     
@@ -113,7 +113,7 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -171,11 +171,13 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="drawer">
-    
-      <i class="md-logo md-nav__button">
-        <img src="../../img/mark.svg">
-      </i>
-    
+    <div class="md-nav__button md-logo">
+      
+        
+          <img src="../../img/mark.svg">
+        
+      
+    </div>
     WordHat
   </label>
   
@@ -324,6 +326,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wordhat-intro/index.html" title="WordHat" class="md-nav__link">
+      WordHat
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -428,6 +442,18 @@
   <li class="md-nav__item">
     <a href="../../recipes/faq/index.html" title="FAQ" class="md-nav__link">
       FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../recipes/content/index.html" title="Database content" class="md-nav__link">
+      Database content
     </a>
   </li>
 
@@ -568,8 +594,8 @@ outcome &ndash; can be extended by using the <code>And</code> or <code>But</code
 </pre></div>
 
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>There is no difference between the <code>Then</code>, <code>And</code>, and <code>But</code> keywords. Use them appropriately to write Scenarios that are natural and readable.</p>
+<p class="admonition-title">Did you know?</p>
+<p>There is no difference between the <code>Then</code>, <code>And</code>, and <code>But</code> keywords. Use each appropriately to write Scenarios that are natural and readable.</p>
 </div>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
 <p>Imagine that we are building a new e-commerce website. One of the key features of any online shop is the ability to buy products, but before buying anything, customers need to be able to tell the shop which products they want to buy. We need a shopping basket.</p>
@@ -592,8 +618,8 @@ outcome &ndash; can be extended by using the <code>And</code> or <code>But</code
 <span class="nf">    - Delivery for basket over £10 is £2</span>
 </pre></div>
 
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition summary">
+<p class="admonition-title">Summary</p>
 <p>Features are a simple description of a user story.</p>
 <p>The format is always the same: the title of the feature, followed by three lines that describe the benefit, the role, and the feature itself. On subsequent lines, we can add any amount of additional description (such as the rules section, in this example).</p>
 </div>
@@ -633,8 +659,8 @@ outcome &ndash; can be extended by using the <code>And</code> or <code>But</code
 <span class="nf">            </span><span class="k">And </span><span class="nf">the overall basket price should be £</span><span class="s">20</span><span class="nf"></span>
 </pre></div>
 
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<div class="admonition tip">
+<p class="admonition-title">Did you know?</p>
 <p>Scenarios in Feature files should focus on the <em>what</em>, rather than the <em>how</em>.</p>
 <p>Each Scenario should be concise and to the point, so that the reader can quickly grasp the intent of the test without having to read a lot of irrelevant steps.</p>
 </div>
@@ -675,7 +701,7 @@ outcome &ndash; can be extended by using the <code>And</code> or <code>But</code
 <p>In the annotation, Behat can capture tokens (words starting with a colon, e.g.
 <code>:arg1</code>) and pass their value to the method as arguments. Behat also supports optionally matching part of an Step using brackets.</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<p class="admonition-title">Did you know?</p>
 <p>To facilitate more complex matching requirements, Behat supports regular expressions.</p>
 </div>
 <p>An example of a Step Definition required for our e-commerce website is:
@@ -700,13 +726,14 @@ outcome &ndash; can be extended by using the <code>And</code> or <code>But</code
 <li><code>Given there is a bolt, which costs £2</code></li>
 </ul>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<p>This guide has introduced the basics of Behat and <abbr title="Behavior Driven Development">BDD</abbr>, and you are now ready to begin working with WordHat. To learn more, we recommend the following websites and presentations:</p>
+<p>This guide has introduced the basics of Behat and <abbr title="Behavior Driven Development">BDD</abbr>. To learn more, we recommend the following websites and presentations:</p>
 <ul>
 <li>Jessica Mauerhan: &ldquo;<a href="https://jmauerhan.wordpress.com/talks/behat-beyond-the-basics/">Behat: Beyond the Basic</a>&rdquo;.</li>
 <li>Knp University: &ldquo;<a href="https://knpuniversity.com/screencast/behat">BDD, Behat, Mink and other Wonderful Things</a>&rdquo;.</li>
 <li>Inviqa: &ldquo;<a href="https://inviqa.com/blog/bdd-guide">The beginner&rsquo;s guide to BDD</a>&rdquo;.</li>
 <li>Andy Knight: &ldquo;<a href="https://automationpanda.com/2017/02/20/the-behavior-driven-three-amigos/">The Behavior-Driven Three Amigos</a>&rdquo;.</li>
 </ul>
+<p>You are now ready to begin working with WordHat, but we recommend reviewing our <a href="../wordhat-intro/index.html">best practices for configuring WordHat</a> for your project.</p>
 
               
                 
@@ -737,13 +764,13 @@ outcome &ndash; can be extended by using the <code>And</code> or <code>But</code
           </a>
         
         
-          <a href="../../features/overview/index.html" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../wordhat-intro/index.html" title="WordHat" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Overview
+                WordHat
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -788,7 +815,7 @@ outcome &ndash; can be extended by using the <code>And</code> or <code>But</code
       
     </div>
     
-      <script src="../../assets/javascripts/application-6940329b9f.js"></script>
+      <script src="../../assets/javascripts/application-f3ab9e5ff8.js"></script>
       
       
       <script>app.initialize({url:{base:"../.."}})</script>

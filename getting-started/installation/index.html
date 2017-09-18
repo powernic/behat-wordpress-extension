@@ -18,7 +18,7 @@
       
         <link rel="shortcut icon" href="../../img/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.8.1">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.10.1">
     
     
       
@@ -26,12 +26,12 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-bfecc7305d.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-a20f419c8e.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-02c2a4388f.palette.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-23f75ab9c7.palette.css">
       
     
     
@@ -113,7 +113,7 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -171,11 +171,13 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="drawer">
-    
-      <i class="md-logo md-nav__button">
-        <img src="../../img/mark.svg">
-      </i>
-    
+    <div class="md-nav__button md-logo">
+      
+        
+          <img src="../../img/mark.svg">
+        
+      
+    </div>
     WordHat
   </label>
   
@@ -310,6 +312,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wordhat-intro/index.html" title="WordHat" class="md-nav__link">
+      WordHat
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -418,6 +432,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../recipes/content/index.html" title="Database content" class="md-nav__link">
+      Database content
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -516,8 +542,8 @@
   
   <h1 id="installing-wordhat">Installing WordHat<a class="headerlink" href="#installing-wordhat" title="Permanent link">&para;</a></h1>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<p>WordHat requires <a href="https://php.net/">PHP</a> (version 5.6+), <a href="https://getcomposer.org/">Composer</a>, and a <a href="https://wordpress.org/">WordPress</a> site to test (version 4.8+).</p>
-<p>We strongly recommend using <a href="https://wp-cli.org/">WP-CLI</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> (version 1.3.0+), and the standalone version of <a href="http://docs.seleniumhq.org/download/">Selenium</a><sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup>.</p>
+<p>WordHat requires <a href="https://php.net/">PHP</a> (version 7.0+), <a href="https://getcomposer.org/">Composer</a>, and a <a href="https://wordpress.org/">WordPress</a> site to test (version 4.8+).</p>
+<p>We strongly recommend using <a href="https://wp-cli.org/">WP-CLI</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> (version 1.3.0+), and <a href="http://www.seleniumhq.org/">Selenium</a><sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> to help with browser automation. Selenium is fiddly to set up, so we recommend using <a href="https://github.com/vvo/selenium-standalone#command-line-interface">vvo/selenium-standalone</a>.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <ol>
 
@@ -527,22 +553,23 @@ cd project</code></pre>
 </li>
 
 <li>Tell <a href="https://getcomposer.org/">Composer</a> to download WordHat:
-    <pre>composer require --dev paulgibbs/behat-wordpress-extension behat/mink-goutte-driver behat/mink-selenium2-driver</pre>
+    <pre><code>composer require --dev paulgibbs/behat-wordpress-extension behat/mink-goutte-driver behat/mink-selenium2-driver</code></pre>
 </li>
 
 <li>Copy WordHat's sample configuration file into your <code>project</code> folder and rename it:
     <pre><code>cp vendor/paulgibbs/behat-wordpress-extension/behat.yml.dist behat.yml</code></pre>
 </li>
 
-<li>Edit your <code>behat.yml</code> and update the <code>base_url</code> setting with the URL of the website that you intend to test.
+<li><p>Edit your <code>behat.yml</code> and update the <code>base_url</code> setting with the URL of the website that you intend to test.</>
+<p>If your WordPress is installed in a subdirectory, <a href="/recipes/faq/index.html#wordpress">consult the FAQ for information about the <code>site_url</code> setting</a>.</p>
 </li>
 
 <li>Initialise <a href="http://behat.org">Behat</a>:
     <pre><code>vendor/bin/behat --init</code></pre>
 
-    <div class="admonition tip">
-        <p class="admonition-title">Tip</p>
-        <p>This will create a <code>features/</code> folder for your <a href="http://docs.behat.org/en/latest/user_guide/features_scenarios.html#features">Features (tests)</a>, and a new <a href="http://docs.behat.org/en/latest/user_guide/context.html">Context class</a>. These will come in handy later!</p>
+    <div class="admonition info">
+        <p class="admonition-title">What does this do?</p>
+        <p>This creates a <code>features/</code> folder for your <a href="http://docs.behat.org/en/latest/user_guide/features_scenarios.html#features">Features (tests)</a>, and a new <a href="http://docs.behat.org/en/latest/user_guide/context.html">Context class</a>. These will come in handy later!</p>
     </div>
 </li>
 
@@ -567,7 +594,7 @@ Given I am logged in as :name
 <p>The WP-CLI executable <em>must</em> be named <code>wp</code> and be within your system&rsquo;s <a href="https://en.wikipedia.org/wiki/PATH_(variable)" id="WP-CLI">$PATH</a>.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>Recommended for testing <a href="http://mink.behat.org/en/latest/guides/drivers.html" id="SEL">websites that require Javascript</a>. It requires the <a href="https://packagist.org/packages/behat/mink-selenium2-driver">Mink Selenium2 driver</a>, which we include in the installation instructions above.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Selenium is recommended for testing <a href="http://mink.behat.org/en/latest/guides/drivers.html" id="SEL">websites that require Javascript</a>. Behat requires the <a href="https://packagist.org/packages/behat/mink-selenium2-driver">Mink Selenium2 library</a>, which we include in the installation instructions above.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -652,7 +679,7 @@ Given I am logged in as :name
       
     </div>
     
-      <script src="../../assets/javascripts/application-6940329b9f.js"></script>
+      <script src="../../assets/javascripts/application-f3ab9e5ff8.js"></script>
       
       
       <script>app.initialize({url:{base:"../.."}})</script>
