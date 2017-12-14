@@ -3,7 +3,7 @@
 ## Unreleased
 - tbc
 
-## [0.910] - 2017-12-14
+## [0.9.1] - 2017-12-14
 ### Fixed
 - Fix invalid YAML in services.yml.
 
