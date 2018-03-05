@@ -162,7 +162,7 @@
         }, 
         {
             "location": "/configuration/settings/index.html", 
-            "text": "Settings\n\n\nThis documentaton refers to settings provided by the WordHat extension.\n\n\nConsult the \nBehat website\n for an overview of general settings, or the \nMink website\n for settings relating to controlling a web browser.\n\n\nWordHat\n\n\nThese are the options provided by the WordHat extension:\n\n\nPaulGibbs\\WordpressBehatExtension\n:\n\n  \ndefault_driver\n:\n \nwpcli\n\n  \npath\n:\n \n~\n\n\n  \n# User settings.\n\n  \nusers\n:\n\n    \nadmin\n:\n\n      \nusername\n:\n \nadmin\n\n      \npassword\n:\n \nadmin\n\n    \neditor\n:\n\n      \nusername\n:\n \neditor\n\n      \npassword\n:\n \neditor\n\n    \nauthor\n:\n\n      \nusername\n:\n \nauthor\n\n      \npassword\n:\n \nauthor\n\n    \ncontributor\n:\n\n      \nusername\n:\n \ncontributor\n\n      \npassword\n:\n \ncontributor\n\n    \nsubscriber\n:\n\n      \nusername\n:\n \nsubscriber\n\n      \npassword\n:\n \nsubscriber\n\n\n  \n# WordPress settings.\n\n  \nsite_url\n:\n \n~\n\n  \npermalinks\n:\n\n    \nauthor_archive\n:\n \nauthor/%s/\n\n  \ndatabase\n:\n\n    \nrestore_after_test\n:\n \nfalse\n\n    \nbackup_path\n:\n \n~\n\n\n  \n# Driver settings.\n\n  \nwpcli\n:\n\n    \nalias\n:\n \ndev\n\n    \nbinary\n:\n \nwp\n\n\n\n\n\n\n\n\n\n\n\nOption\n\n\nDefault value\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndefault_driver\n\n\nwpcli\n\n\nOptional\n.\nThe \nWordPress driver\n to use (\nwpcli\n, \nwpphp\n).\n\n\n\n\n\n\npath\n\n\nnull\n\n\nRequired\n.\nPath to WordPress files.\n\n\n\n\n\n\nusers.*\n\n\nsee example\n\n\nOptional\n.\nKeys must match names of WordPress roles.\n\n\n\n\n\n\nsite_url\n\n\nnull\n\n\nOptional\n.\nIf your WordPress is installed in a subdirectory, set this to the \nsite_url()\n value. Defaults to \nmink.base_url\n.\n\n\n\n\n\n\npermalinks.*\n\n\nsee example\n\n\nOptional\n.\nPermalink pattern for the specific kind of link.\n%s\n is replaced with an ID/object name, as appropriate.\n\n\n\n\n\n\ndatabase.restore_after_test\n\n\nfalse\n\n\nOptional\n.\nIf \ntrue\n, \nWordHat will restore your site\ns database to its initial state between feature tests\n.\n\n\n\n\n\n\ndatabase.backup_path\n\n\nsee example\n\n\nOptional\n.\nIf \nrestore_after_test\n is true, and the value is a file path, WordHat will use that as the back up to restore the database from.\nIf the path is a directory, then before any tests are run, WordHat will generate a database back up and store it here.\nIf the path has not been set, WordHat will choose its own temporary folder.\n\n\n\n\n\n\nwpcli.alias\n\n\nnull\n\n\nOptional\n.\nWP-CLI alias\n (preferred over \nwpcli.path\n).\n\n\n\n\n\n\nwpcli.binary\n\n\nwp\n\n\nOptional\n.\nPath and name of WP-CLI binary.\n\n\n\n\n\n\n\n\nPer-environment settings\n\n\nSome of the settings in \nbehat.yml\n are environment specific. For example, the \nbase_url\n may be \nhttp://test.example.dev\n on your local development environment, while on a test server it might be \nhttp://test.example.com\n.\n\n\nIf you intend to run your tests on different environments, these sorts of settings should not be added to your \nbehat.yml\n. Instead, they should be exported in an environment variable.\n\n\nBefore running tests, Behat will check the \nBEHAT_PARAMS\n environment variable and add these settings to the ones that are present in \nbehat.yml\n (settings from this file takes precedence). This variable should contain a JSON object with your settings.\n\n\nExample JSON object:\n\n\n{\n\n  \nextensions\n:\n \n{\n\n    \nBehat\\\\MinkExtension\n:\n \n{\n\n      \nbase_url\n:\n \nhttp://development.dev\n\n    \n}\n\n  \n}\n\n\n}\n\n\n\n\n\nTo export this to the \nBEHAT_PARAMS\n environment variable on a Linux or MacOS system, squash the JSON object into a single line and surround with single quotes:\n\n\nexport\n \nBEHAT_PARAMS\n=\n{\nextensions\n:{\nBehat\\\\MinkExtension\n:{\nbase_url\n:\nhttp://development.dev\n}}}", 
+            "text": "Settings\n\n\nThis documentaton refers to settings provided by the WordHat extension.\n\n\nConsult the \nBehat website\n for an overview of general settings, or the \nMink website\n for settings relating to controlling a web browser.\n\n\nWordHat\n\n\nThese are the options provided by the WordHat extension:\n\n\nPaulGibbs\\WordpressBehatExtension\n:\n\n  \ndefault_driver\n:\n \nwpcli\n\n  \npath\n:\n \n~\n\n\n  \n# User settings.\n\n  \nusers\n:\n\n    \nadmin\n:\n\n      \nusername\n:\n \nadmin\n\n      \npassword\n:\n \nadmin\n\n    \neditor\n:\n\n      \nusername\n:\n \neditor\n\n      \npassword\n:\n \neditor\n\n    \nauthor\n:\n\n      \nusername\n:\n \nauthor\n\n      \npassword\n:\n \nauthor\n\n    \ncontributor\n:\n\n      \nusername\n:\n \ncontributor\n\n      \npassword\n:\n \ncontributor\n\n    \nsubscriber\n:\n\n      \nusername\n:\n \nsubscriber\n\n      \npassword\n:\n \nsubscriber\n\n\n  \n# WordPress settings.\n\n  \nsite_url\n:\n \n~\n\n  \npermalinks\n:\n\n    \nauthor_archive\n:\n \nauthor/%s/\n\n  \ndatabase\n:\n\n    \nrestore_after_test\n:\n \nfalse\n\n    \nbackup_path\n:\n \n~\n\n\n  \n# Driver settings.\n\n  \nwpcli\n:\n\n    \nalias\n:\n \ndev\n\n    \nbinary\n:\n \nwp\n\n\n\n\n\n\n\n\n\n\n\nOption\n\n\nDefault value\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndefault_driver\n\n\nwpcli\n\n\nOptional\n.\nThe \nWordPress driver\n to use (\nwpcli\n, \nwpphp\n).\n\n\n\n\n\n\npath\n\n\nnull\n\n\nOptional\n.\nPath to WordPress files.\n\n\n\n\n\n\nusers.*\n\n\nsee example\n\n\nOptional\n.\nKeys must match names of WordPress roles.\n\n\n\n\n\n\nsite_url\n\n\nnull\n\n\nOptional\n.\nIf your WordPress is installed in a subdirectory, set this to the \nsite_url()\n value. Defaults to \nmink.base_url\n.\n\n\n\n\n\n\npermalinks.*\n\n\nsee example\n\n\nOptional\n.\nPermalink pattern for the specific kind of link.\n%s\n is replaced with an ID/object name, as appropriate.\n\n\n\n\n\n\ndatabase.restore_after_test\n\n\nfalse\n\n\nOptional\n.\nIf \ntrue\n, \nWordHat will restore your site\ns database to its initial state between feature tests\n.\n\n\n\n\n\n\ndatabase.backup_path\n\n\nsee example\n\n\nOptional\n.\nIf \nrestore_after_test\n is true, and the value is a file path, WordHat will use that as the back up to restore the database from.\nIf the path is a directory, then before any tests are run, WordHat will generate a database back up and store it here.\nIf the path has not been set, WordHat will choose its own temporary folder.\n\n\n\n\n\n\nwpcli.alias\n\n\nnull\n\n\nOptional\n.\nWP-CLI alias\n (preferred over \nwpcli.path\n).\n\n\n\n\n\n\nwpcli.binary\n\n\nwp\n\n\nOptional\n.\nPath and name of WP-CLI binary.\n\n\n\n\n\n\n\n\nPer-environment settings\n\n\nSome of the settings in \nbehat.yml\n are environment specific. For example, the \nbase_url\n may be \nhttp://test.example.dev\n on your local development environment, while on a test server it might be \nhttp://test.example.com\n.\n\n\nIf you intend to run your tests on different environments, these sorts of settings should not be added to your \nbehat.yml\n. Instead, they should be exported in an environment variable.\n\n\nBefore running tests, Behat will check the \nBEHAT_PARAMS\n environment variable and add these settings to the ones that are present in \nbehat.yml\n (settings from this file takes precedence). This variable should contain a JSON object with your settings.\n\n\nExample JSON object:\n\n\n{\n\n  \nextensions\n:\n \n{\n\n    \nBehat\\\\MinkExtension\n:\n \n{\n\n      \nbase_url\n:\n \nhttp://development.dev\n\n    \n}\n\n  \n}\n\n\n}\n\n\n\n\n\nTo export this to the \nBEHAT_PARAMS\n environment variable on a Linux or MacOS system, squash the JSON object into a single line and surround with single quotes:\n\n\nexport\n \nBEHAT_PARAMS\n=\n{\nextensions\n:{\nBehat\\\\MinkExtension\n:{\nbase_url\n:\nhttp://development.dev\n}}}", 
             "title": "Settings"
         }, 
         {
@@ -172,7 +172,7 @@
         }, 
         {
             "location": "/configuration/settings/index.html#wordhat", 
-            "text": "These are the options provided by the WordHat extension:  PaulGibbs\\WordpressBehatExtension : \n   default_driver :   wpcli \n   path :   ~ \n\n   # User settings. \n   users : \n     admin : \n       username :   admin \n       password :   admin \n     editor : \n       username :   editor \n       password :   editor \n     author : \n       username :   author \n       password :   author \n     contributor : \n       username :   contributor \n       password :   contributor \n     subscriber : \n       username :   subscriber \n       password :   subscriber \n\n   # WordPress settings. \n   site_url :   ~ \n   permalinks : \n     author_archive :   author/%s/ \n   database : \n     restore_after_test :   false \n     backup_path :   ~ \n\n   # Driver settings. \n   wpcli : \n     alias :   dev \n     binary :   wp      Option  Default value  Description      default_driver  wpcli  Optional . The  WordPress driver  to use ( wpcli ,  wpphp ).    path  null  Required . Path to WordPress files.    users.*  see example  Optional . Keys must match names of WordPress roles.    site_url  null  Optional . If your WordPress is installed in a subdirectory, set this to the  site_url()  value. Defaults to  mink.base_url .    permalinks.*  see example  Optional . Permalink pattern for the specific kind of link. %s  is replaced with an ID/object name, as appropriate.    database.restore_after_test  false  Optional . If  true ,  WordHat will restore your site s database to its initial state between feature tests .    database.backup_path  see example  Optional . If  restore_after_test  is true, and the value is a file path, WordHat will use that as the back up to restore the database from. If the path is a directory, then before any tests are run, WordHat will generate a database back up and store it here. If the path has not been set, WordHat will choose its own temporary folder.    wpcli.alias  null  Optional . WP-CLI alias  (preferred over  wpcli.path ).    wpcli.binary  wp  Optional . Path and name of WP-CLI binary.", 
+            "text": "These are the options provided by the WordHat extension:  PaulGibbs\\WordpressBehatExtension : \n   default_driver :   wpcli \n   path :   ~ \n\n   # User settings. \n   users : \n     admin : \n       username :   admin \n       password :   admin \n     editor : \n       username :   editor \n       password :   editor \n     author : \n       username :   author \n       password :   author \n     contributor : \n       username :   contributor \n       password :   contributor \n     subscriber : \n       username :   subscriber \n       password :   subscriber \n\n   # WordPress settings. \n   site_url :   ~ \n   permalinks : \n     author_archive :   author/%s/ \n   database : \n     restore_after_test :   false \n     backup_path :   ~ \n\n   # Driver settings. \n   wpcli : \n     alias :   dev \n     binary :   wp      Option  Default value  Description      default_driver  wpcli  Optional . The  WordPress driver  to use ( wpcli ,  wpphp ).    path  null  Optional . Path to WordPress files.    users.*  see example  Optional . Keys must match names of WordPress roles.    site_url  null  Optional . If your WordPress is installed in a subdirectory, set this to the  site_url()  value. Defaults to  mink.base_url .    permalinks.*  see example  Optional . Permalink pattern for the specific kind of link. %s  is replaced with an ID/object name, as appropriate.    database.restore_after_test  false  Optional . If  true ,  WordHat will restore your site s database to its initial state between feature tests .    database.backup_path  see example  Optional . If  restore_after_test  is true, and the value is a file path, WordHat will use that as the back up to restore the database from. If the path is a directory, then before any tests are run, WordHat will generate a database back up and store it here. If the path has not been set, WordHat will choose its own temporary folder.    wpcli.alias  null  Optional . WP-CLI alias  (preferred over  wpcli.path ).    wpcli.binary  wp  Optional . Path and name of WP-CLI binary.", 
             "title": "WordHat"
         }, 
         {
@@ -182,7 +182,7 @@
         }, 
         {
             "location": "/recipes/faq/index.html", 
-            "text": "FAQs\n\n\nIf you are new to the project or Behat, we recommend that you first \nread through our documentation\n. For any questions, feedback, or to contribute, you can get in contact with us via Github or our \nSlack\n.\n\n\nVirtual machines (Vagrant)\n\n\n\n\nIf you are using a Vagrant-powered virtual machine to run Behat via the \nWP-CLI driver\n, you will need to \nvagrant ssh\n into the box once. This will set up password-less authentication; otherwise, WordHat will prompt you for the SSH password frequently.\n\n\n\n\nDrivers\n\n\n\n\nIf you are using the WP-CLI driver to \nconnect to a remote WordPress site over SSH\n, WordHat assumes the remote server is Linux-like, with a shell that provides \nGNU Coreutils\n.\n\n\nTo configure WordHat to use a specific driver, set \ndefault_driver\n in your \nbehat.yml\n.\n\n\n\n\nBrowsers\n\n\n\n\nIf you are using \nSelenium\n to run Javascript tests, and you access your WordPress site over HTTPS, \nand\n it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.\n\n\n\n\nSelenium\n\n\n\n\nOn a Mac, Selenium is incompatible with the default Apple Java; error messages look like \nUnsupported major.minor version 52.0\n. To fix, install \nOracle Java Platform JDK\n.\n\n\nWith Selenium, some environments may require a \nwebdriver\n; error messages may refer to \nGeckoWebDriver\n or \nChromeWebDriver\n, etc. Good solutions include \nvvo/selenium-standalone\n or \njoomla-projects/selenium-server-standalone\n, the latter of which we use to \nset up Selenium on Travis-CI\n.\n\n\n\n\nSupported platforms\n\n\n\n\nWordHat supports MacOS, most flavours of Linux, and Windows. We use \nTravis-CI\n and \nAppveyor\n to test on Ubuntu and Windows, respectively, and require modern versions of PHP.\n\n\n\n\nWordPress\n\n\n\n\nIf your WordPress is installed in a subdirectory, you need to set the \nsite_url\n option to the value of the \nWordPress address (URL)\n option (found in WordPress \n Settings \n General). For more information, \nconsult the WordHat documentation\n.", 
+            "text": "FAQs\n\n\nIf you are new to the project or Behat, we recommend that you first \nread through our documentation\n. For any questions, feedback, or to contribute, you can get in contact with us via Github or our \nSlack\n.\n\n\nVirtual machines (Vagrant)\n\n\n\n\nIf you are using a Vagrant-powered virtual machine to run Behat via the \nWP-CLI driver\n, you will need to \nvagrant ssh\n into the box once. This will set up password-less authentication; otherwise, WordHat will prompt you for the SSH password frequently.\n\n\n\n\nDrivers\n\n\n\n\nIf you are using the WP-CLI driver to \nconnect to a remote WordPress site over SSH\n, WordHat assumes the remote server is Linux-like, with a shell that provides \nGNU Coreutils\n.\n\n\nTo configure WordHat to use a specific driver, set \ndefault_driver\n in your \nbehat.yml\n.\n\n\nAs of v1.1.0, it is possible to use multiple drivers at the same time. This should be considered an experimental feature for advanced users only. To enable it, tag a scenario with the name of the driver to use (e.g. \n@wpcli\n or \n@wpphp\n).\n\n\n\n\nBrowsers\n\n\n\n\nIf you are using \nSelenium\n to run Javascript tests, and you access your WordPress site over HTTPS, \nand\n it has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.\n\n\n\n\nSelenium\n\n\n\n\nOn a Mac, Selenium is incompatible with the default Apple Java; error messages look like \nUnsupported major.minor version 52.0\n. To fix, install \nOracle Java Platform JDK\n.\n\n\nWith Selenium, some environments may require a \nwebdriver\n; error messages may refer to \nGeckoWebDriver\n or \nChromeWebDriver\n, etc. Good solutions include \nvvo/selenium-standalone\n or \njoomla-projects/selenium-server-standalone\n, the latter of which we use to \nset up Selenium on Travis-CI\n.\n\n\n\n\nSupported platforms\n\n\n\n\nWordHat supports MacOS, most flavours of Linux, and Windows. We use \nTravis-CI\n and \nAppveyor\n to test on Ubuntu and Windows, respectively, and require modern versions of PHP.\n\n\n\n\nWordPress\n\n\n\n\nIf your WordPress is installed in a subdirectory, you need to set the \nsite_url\n option to the value of the \nWordPress address (URL)\n option (found in WordPress \n Settings \n General). For more information, \nconsult the WordHat documentation\n.", 
             "title": "FAQ"
         }, 
         {
@@ -197,7 +197,7 @@
         }, 
         {
             "location": "/recipes/faq/index.html#drivers", 
-            "text": "If you are using the WP-CLI driver to  connect to a remote WordPress site over SSH , WordHat assumes the remote server is Linux-like, with a shell that provides  GNU Coreutils .  To configure WordHat to use a specific driver, set  default_driver  in your  behat.yml .", 
+            "text": "If you are using the WP-CLI driver to  connect to a remote WordPress site over SSH , WordHat assumes the remote server is Linux-like, with a shell that provides  GNU Coreutils .  To configure WordHat to use a specific driver, set  default_driver  in your  behat.yml .  As of v1.1.0, it is possible to use multiple drivers at the same time. This should be considered an experimental feature for advanced users only. To enable it, tag a scenario with the name of the driver to use (e.g.  @wpcli  or  @wpphp ).", 
             "title": "Drivers"
         }, 
         {
@@ -242,7 +242,7 @@
         }, 
         {
             "location": "/changelog/index.html", 
-            "text": "News\n\n\n1.0.0\n - 2018-01-18\n\n\nAdded\n\n\n\n\nNew step definitions (8 new, 7 changed, and 1 removed).\n\n\nFull test coverage for all step definitions and internal WordPress drivers.\n\n\nImproved documentation.\n\n\n\n\nChanged\n\n\n\n\nNow requires PHP 7+.\n\n\nInternal API adjustments: Contexts now only map step definitions to code, functions used by steps have been moved into traits, and drivers encapsulate \nCRUD\n operations).\n\n\nPHPDoc improvements.\n\n\nUse \nPHPStan\n for static analysis instead of Scrutinizer-CI.\n\n\nNew Docker environment for Travis CI; increases build confidence and reliability.\n\n\n\n\nFixed\n\n\n\n\nMany issues discovered by completing our own test coverage.\n\n\nAppVeyor fixes.\n\n\n\n\n0.9.2\n - 2017-12-18\n\n\nFixed\n\n\n\n\nFix (more) invalid YAML.\n\n\n\n\n0.9.1\n - 2017-12-14\n\n\nFixed\n\n\n\n\nFix invalid YAML in services.yml.\n\n\n\n\n0.9.0\n - 2017-10-09\n\n\nChanged\n\n\n\n\nPHPDoc updated/tweaked.\n\n\nRename some \nPageObjects\n classes for internal consistency.\n\n\n\n\nFixed\n\n\n\n\nFix return value when creating users.\n\n\nFix creating content with terms or meta, with WP-CLI driver.\n\n\n\n\nRemoved\n\n\n\n\nRemoved unused internal function \nisWordpressError()\n.\n\n\nRemoved Composer package \nroave/security-advisories\n.\n\n\nRemoved unused Context class.\n\n\n\n\n0.8.0\n - 2017-09-18\n\n\nAdded\n\n\n\n\nFinished implementing database content rollback options; consult documentation.\n\n\n\n\nChanged\n\n\n\n\nWordHat now requires PHP 7.0+.\n\n\nRenamed \nWP-API\n driver to \nWP-PHP\n (backwards-compatible, as long as you have not extended driver classes).\n\n\nWebsite; significant documentation update, especially for on-boarding new users.\n\n\nPath\n setting can now be a relative or absolute path. Previously, only absolute paths were supported.\n\n\n\n\nFixed\n\n\n\n\nWebsite; mkdocs-material theme update to latest version (accessibility fixes).\n\n\nVarious PHPDoc improvements and corrections.\n\n\n\n\n0.7.1\n - 2017-08-21\n\n\nChanged\n\n\n\n\nPath\n setting can now be a relative or absolute path. Previously, only absolute paths were supported.\n\n\n\n\n0.7.0\n - 2017-06-30\n\n\nAdded\n\n\n\n\nContentEditor\n and \nPostContentEditor\n page (element) objects for interacting with TinyMCE elements.\n\n\nEditPostContext\n.\n\n\nWidgetContext\n.\n\n\nAdd optional \nredirect_to\n param to \nlogIn()\n.\n\n\n\n\nChanged\n\n\n\n\nDriver interface re-organisation. See \n#21\n.\n\n\n\n\nFixed\n\n\n\n\nIf a browser window is not open when the \nBeforeStep\n event is run, then our call to Selenium2Driver::executeScript() will throw an exception.\n\n\nCompatibility with WordPress 4.8.\n\n\nToolbar page object: fix calls to \nevaluateScript\n.\n\n\nStrict version requirement for WP-CLI.\n\n\nLinks and buttons behind the WordPress\n Toolbar cannot be interacted with.\n\n\n\n\nDeprecated\n\n\n\n\nRename \nis_wordpress_error()\n to \nisWordPressError()\n.\n\n\n\n\n0.6.0\n - 2017-04-05\n\n\nAdded\n\n\n\n\nInitial support for \nsensiolabs/behat-page-object-extension\n with support for parts of wp-admin, and the Toolbar.\n\n\n\n\nChanged\n\n\n\n\nDocumentation corrections; website and PHPDoc.\n\n\nWP-CLI driver no longer fails if the command returns text through stdout.\n\n\nTravis-CI reports job status to our Slack; join us at \nhttps://wordhat.herokuapp.com\n \ud83d\ude00\n\n\nComposer requirements loosened for better compatibility with other projects.\n\n\n\n\nFixed\n\n\n\n\nTravis-CI tasks now succesfully run on Github forks of the project.\n\n\nAttempts made to improve intermittent failures with the log-in action when run with Selenium. Work-in-progress.\n\n\nRegex correction for \ngiven\n block for \nContentContext-\nthereArePosts()\n.\n\n\n\n\nDeprecated\n\n\n\n\nisWordpressError()\n moved into \nUtil\n namespace.\n\n\n\n\n0.5.0\n - 2017-02-08\n\n\nAdded\n\n\n\n\nPHPCS rules.\n\n\nScrutinizer-CI integration.\n\n\n\n\nChanged\n\n\n\n\nWebsite; switched from Couscous to MkDocs.\n\n\nDocumentation.\n\n\nTravis-CI tweaks.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH. Again.\n\n\n\n\n0.4.0\n - 2017-01-30\n\n\nAdded\n\n\n\n\nIntroduce \nsensiolabs/behat-page-object-extension\n for future development.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\nWebsite design and performance improvements.\n\n\nTravis-CI improvements.\n\n\n\n\n0.3.0\n - 2017-01-07\n\n\nAdded\n\n\n\n\nMiscellanous driver fixes.\n\n\nFirst pass at Contexts.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\n\n\n0.2.0\n - 2016-11-26\n\n\nAdded\n\n\n\n\nWP-API and blackbox drivers.\n\n\nWebsite/documentation.\n\n\nDatabase import/export methods to drivers.\n\n\n\n\nChanged\n\n\n\n\nAdjusted exceptions thrown by DriverManager and Drivers.\n\n\nDesign adjustments to website.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous WP-CLI driver fixes.\n\n\n\n\n0.1.0\n - 2016-09-22\n\n\nAdded\n\n\n\n\nFirst working version of basic architecture.", 
+            "text": "News\n\n\nMaster branch\n\n\n\n\ntbc\n\n\n\n\n1.1.0\n - 2018-03-05\n\n\nAdded\n\n\n\n\nSupport for running multiple drivers simultaneously.\n\n\nMinor PHPDoc adjustments.\n\n\nMinor website updates (primary navigation changes, and robots.txt).\n\n\n\n\nChanged\n\n\n\n\nRequire WP-CLI v1.5+.\n\n\nMost of the internals now use strict typehinting.\n\n\nDrivers: the \npath\n argument is now optional.\n\n\nComposer dependencies updated to more recent versions.\n\n\n\n\nFixed\n\n\n\n\nStep \niAmViewingAuthorArchive\n now correctly accepts a user role as its parameter.\n\n\n\n\n1.0.0\n - 2018-01-18\n\n\nAdded\n\n\n\n\nNew step definitions (8 new, 7 changed, and 1 removed).\n\n\nFull test coverage for all step definitions and internal WordPress drivers.\n\n\nImproved documentation.\n\n\n\n\nChanged\n\n\n\n\nNow requires PHP 7+.\n\n\nInternal API adjustments: Contexts now only map step definitions to code, functions used by steps have been moved into traits, and drivers encapsulate \nCRUD\n operations).\n\n\nPHPDoc improvements.\n\n\nUse \nPHPStan\n for static analysis instead of Scrutinizer-CI.\n\n\nNew Docker environment for Travis CI; increases build confidence and reliability.\n\n\n\n\nFixed\n\n\n\n\nMany issues discovered by completing our own test coverage.\n\n\nAppVeyor fixes.\n\n\n\n\n0.9.2\n - 2017-12-18\n\n\nFixed\n\n\n\n\nFix (more) invalid YAML.\n\n\n\n\n0.9.1\n - 2017-12-14\n\n\nFixed\n\n\n\n\nFix invalid YAML in services.yml.\n\n\n\n\n0.9.0\n - 2017-10-09\n\n\nChanged\n\n\n\n\nPHPDoc updated/tweaked.\n\n\nRename some \nPageObjects\n classes for internal consistency.\n\n\n\n\nFixed\n\n\n\n\nFix return value when creating users.\n\n\nFix creating content with terms or meta, with WP-CLI driver.\n\n\n\n\nRemoved\n\n\n\n\nRemoved unused internal function \nisWordpressError()\n.\n\n\nRemoved Composer package \nroave/security-advisories\n.\n\n\nRemoved unused Context class.\n\n\n\n\n0.8.0\n - 2017-09-18\n\n\nAdded\n\n\n\n\nFinished implementing database content rollback options; consult documentation.\n\n\n\n\nChanged\n\n\n\n\nWordHat now requires PHP 7.0+.\n\n\nRenamed \nWP-API\n driver to \nWP-PHP\n (backwards-compatible, as long as you have not extended driver classes).\n\n\nWebsite; significant documentation update, especially for on-boarding new users.\n\n\nPath\n setting can now be a relative or absolute path. Previously, only absolute paths were supported.\n\n\n\n\nFixed\n\n\n\n\nWebsite; mkdocs-material theme update to latest version (accessibility fixes).\n\n\nVarious PHPDoc improvements and corrections.\n\n\n\n\n0.7.1\n - 2017-08-21\n\n\nChanged\n\n\n\n\nPath\n setting can now be a relative or absolute path. Previously, only absolute paths were supported.\n\n\n\n\n0.7.0\n - 2017-06-30\n\n\nAdded\n\n\n\n\nContentEditor\n and \nPostContentEditor\n page (element) objects for interacting with TinyMCE elements.\n\n\nEditPostContext\n.\n\n\nWidgetContext\n.\n\n\nAdd optional \nredirect_to\n param to \nlogIn()\n.\n\n\n\n\nChanged\n\n\n\n\nDriver interface re-organisation. See \n#21\n.\n\n\n\n\nFixed\n\n\n\n\nIf a browser window is not open when the \nBeforeStep\n event is run, then our call to Selenium2Driver::executeScript() will throw an exception.\n\n\nCompatibility with WordPress 4.8.\n\n\nToolbar page object: fix calls to \nevaluateScript\n.\n\n\nStrict version requirement for WP-CLI.\n\n\nLinks and buttons behind the WordPress\n Toolbar cannot be interacted with.\n\n\n\n\nDeprecated\n\n\n\n\nRename \nis_wordpress_error()\n to \nisWordPressError()\n.\n\n\n\n\n0.6.0\n - 2017-04-05\n\n\nAdded\n\n\n\n\nInitial support for \nsensiolabs/behat-page-object-extension\n with support for parts of wp-admin, and the Toolbar.\n\n\n\n\nChanged\n\n\n\n\nDocumentation corrections; website and PHPDoc.\n\n\nWP-CLI driver no longer fails if the command returns text through stdout.\n\n\nTravis-CI reports job status to our Slack; join us at \nhttps://wordhat.herokuapp.com\n \ud83d\ude00\n\n\nComposer requirements loosened for better compatibility with other projects.\n\n\n\n\nFixed\n\n\n\n\nTravis-CI tasks now succesfully run on Github forks of the project.\n\n\nAttempts made to improve intermittent failures with the log-in action when run with Selenium. Work-in-progress.\n\n\nRegex correction for \ngiven\n block for \nContentContext-\nthereArePosts()\n.\n\n\n\n\nDeprecated\n\n\n\n\nisWordpressError()\n moved into \nUtil\n namespace.\n\n\n\n\n0.5.0\n - 2017-02-08\n\n\nAdded\n\n\n\n\nPHPCS rules.\n\n\nScrutinizer-CI integration.\n\n\n\n\nChanged\n\n\n\n\nWebsite; switched from Couscous to MkDocs.\n\n\nDocumentation.\n\n\nTravis-CI tweaks.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH. Again.\n\n\n\n\n0.4.0\n - 2017-01-30\n\n\nAdded\n\n\n\n\nIntroduce \nsensiolabs/behat-page-object-extension\n for future development.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous driver fixes, especially WP-CLI over SSH.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\nWebsite design and performance improvements.\n\n\nTravis-CI improvements.\n\n\n\n\n0.3.0\n - 2017-01-07\n\n\nAdded\n\n\n\n\nMiscellanous driver fixes.\n\n\nFirst pass at Contexts.\n\n\n\n\nChanged\n\n\n\n\nDocumentation.\n\n\n\n\n0.2.0\n - 2016-11-26\n\n\nAdded\n\n\n\n\nWP-API and blackbox drivers.\n\n\nWebsite/documentation.\n\n\nDatabase import/export methods to drivers.\n\n\n\n\nChanged\n\n\n\n\nAdjusted exceptions thrown by DriverManager and Drivers.\n\n\nDesign adjustments to website.\n\n\n\n\nFixed\n\n\n\n\nMiscellanous WP-CLI driver fixes.\n\n\n\n\n0.1.0\n - 2016-09-22\n\n\nAdded\n\n\n\n\nFirst working version of basic architecture.", 
             "title": "News"
         }, 
         {
@@ -251,22 +251,47 @@
             "title": "News"
         }, 
         {
+            "location": "/changelog/index.html#master-branch", 
+            "text": "tbc", 
+            "title": "Master branch"
+        }, 
+        {
+            "location": "/changelog/index.html#110-2018-03-05", 
+            "text": "", 
+            "title": "1.1.0 - 2018-03-05"
+        }, 
+        {
+            "location": "/changelog/index.html#added", 
+            "text": "Support for running multiple drivers simultaneously.  Minor PHPDoc adjustments.  Minor website updates (primary navigation changes, and robots.txt).", 
+            "title": "Added"
+        }, 
+        {
+            "location": "/changelog/index.html#changed", 
+            "text": "Require WP-CLI v1.5+.  Most of the internals now use strict typehinting.  Drivers: the  path  argument is now optional.  Composer dependencies updated to more recent versions.", 
+            "title": "Changed"
+        }, 
+        {
+            "location": "/changelog/index.html#fixed", 
+            "text": "Step  iAmViewingAuthorArchive  now correctly accepts a user role as its parameter.", 
+            "title": "Fixed"
+        }, 
+        {
             "location": "/changelog/index.html#100-2018-01-18", 
             "text": "", 
             "title": "1.0.0 - 2018-01-18"
         }, 
         {
-            "location": "/changelog/index.html#added", 
+            "location": "/changelog/index.html#added_1", 
             "text": "New step definitions (8 new, 7 changed, and 1 removed).  Full test coverage for all step definitions and internal WordPress drivers.  Improved documentation.", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#changed", 
+            "location": "/changelog/index.html#changed_1", 
             "text": "Now requires PHP 7+.  Internal API adjustments: Contexts now only map step definitions to code, functions used by steps have been moved into traits, and drivers encapsulate  CRUD  operations).  PHPDoc improvements.  Use  PHPStan  for static analysis instead of Scrutinizer-CI.  New Docker environment for Travis CI; increases build confidence and reliability.", 
             "title": "Changed"
         }, 
         {
-            "location": "/changelog/index.html#fixed", 
+            "location": "/changelog/index.html#fixed_1", 
             "text": "Many issues discovered by completing our own test coverage.  AppVeyor fixes.", 
             "title": "Fixed"
         }, 
@@ -276,7 +301,7 @@
             "title": "0.9.2 - 2017-12-18"
         }, 
         {
-            "location": "/changelog/index.html#fixed_1", 
+            "location": "/changelog/index.html#fixed_2", 
             "text": "Fix (more) invalid YAML.", 
             "title": "Fixed"
         }, 
@@ -286,7 +311,7 @@
             "title": "0.9.1 - 2017-12-14"
         }, 
         {
-            "location": "/changelog/index.html#fixed_2", 
+            "location": "/changelog/index.html#fixed_3", 
             "text": "Fix invalid YAML in services.yml.", 
             "title": "Fixed"
         }, 
@@ -296,12 +321,12 @@
             "title": "0.9.0 - 2017-10-09"
         }, 
         {
-            "location": "/changelog/index.html#changed_1", 
+            "location": "/changelog/index.html#changed_2", 
             "text": "PHPDoc updated/tweaked.  Rename some  PageObjects  classes for internal consistency.", 
             "title": "Changed"
         }, 
         {
-            "location": "/changelog/index.html#fixed_3", 
+            "location": "/changelog/index.html#fixed_4", 
             "text": "Fix return value when creating users.  Fix creating content with terms or meta, with WP-CLI driver.", 
             "title": "Fixed"
         }, 
@@ -316,17 +341,17 @@
             "title": "0.8.0 - 2017-09-18"
         }, 
         {
-            "location": "/changelog/index.html#added_1", 
+            "location": "/changelog/index.html#added_2", 
             "text": "Finished implementing database content rollback options; consult documentation.", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#changed_2", 
+            "location": "/changelog/index.html#changed_3", 
             "text": "WordHat now requires PHP 7.0+.  Renamed  WP-API  driver to  WP-PHP  (backwards-compatible, as long as you have not extended driver classes).  Website; significant documentation update, especially for on-boarding new users.  Path  setting can now be a relative or absolute path. Previously, only absolute paths were supported.", 
             "title": "Changed"
         }, 
         {
-            "location": "/changelog/index.html#fixed_4", 
+            "location": "/changelog/index.html#fixed_5", 
             "text": "Website; mkdocs-material theme update to latest version (accessibility fixes).  Various PHPDoc improvements and corrections.", 
             "title": "Fixed"
         }, 
@@ -336,7 +361,7 @@
             "title": "0.7.1 - 2017-08-21"
         }, 
         {
-            "location": "/changelog/index.html#changed_3", 
+            "location": "/changelog/index.html#changed_4", 
             "text": "Path  setting can now be a relative or absolute path. Previously, only absolute paths were supported.", 
             "title": "Changed"
         }, 
@@ -346,17 +371,17 @@
             "title": "0.7.0 - 2017-06-30"
         }, 
         {
-            "location": "/changelog/index.html#added_2", 
+            "location": "/changelog/index.html#added_3", 
             "text": "ContentEditor  and  PostContentEditor  page (element) objects for interacting with TinyMCE elements.  EditPostContext .  WidgetContext .  Add optional  redirect_to  param to  logIn() .", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#changed_4", 
+            "location": "/changelog/index.html#changed_5", 
             "text": "Driver interface re-organisation. See  #21 .", 
             "title": "Changed"
         }, 
         {
-            "location": "/changelog/index.html#fixed_5", 
+            "location": "/changelog/index.html#fixed_6", 
             "text": "If a browser window is not open when the  BeforeStep  event is run, then our call to Selenium2Driver::executeScript() will throw an exception.  Compatibility with WordPress 4.8.  Toolbar page object: fix calls to  evaluateScript .  Strict version requirement for WP-CLI.  Links and buttons behind the WordPress  Toolbar cannot be interacted with.", 
             "title": "Fixed"
         }, 
@@ -371,17 +396,17 @@
             "title": "0.6.0 - 2017-04-05"
         }, 
         {
-            "location": "/changelog/index.html#added_3", 
+            "location": "/changelog/index.html#added_4", 
             "text": "Initial support for  sensiolabs/behat-page-object-extension  with support for parts of wp-admin, and the Toolbar.", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#changed_5", 
+            "location": "/changelog/index.html#changed_6", 
             "text": "Documentation corrections; website and PHPDoc.  WP-CLI driver no longer fails if the command returns text through stdout.  Travis-CI reports job status to our Slack; join us at  https://wordhat.herokuapp.com  \ud83d\ude00  Composer requirements loosened for better compatibility with other projects.", 
             "title": "Changed"
         }, 
         {
-            "location": "/changelog/index.html#fixed_6", 
+            "location": "/changelog/index.html#fixed_7", 
             "text": "Travis-CI tasks now succesfully run on Github forks of the project.  Attempts made to improve intermittent failures with the log-in action when run with Selenium. Work-in-progress.  Regex correction for  given  block for  ContentContext- thereArePosts() .", 
             "title": "Fixed"
         }, 
@@ -396,17 +421,17 @@
             "title": "0.5.0 - 2017-02-08"
         }, 
         {
-            "location": "/changelog/index.html#added_4", 
+            "location": "/changelog/index.html#added_5", 
             "text": "PHPCS rules.  Scrutinizer-CI integration.", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#changed_6", 
+            "location": "/changelog/index.html#changed_7", 
             "text": "Website; switched from Couscous to MkDocs.  Documentation.  Travis-CI tweaks.", 
             "title": "Changed"
         }, 
         {
-            "location": "/changelog/index.html#fixed_7", 
+            "location": "/changelog/index.html#fixed_8", 
             "text": "Miscellanous driver fixes, especially WP-CLI over SSH. Again.", 
             "title": "Fixed"
         }, 
@@ -416,17 +441,17 @@
             "title": "0.4.0 - 2017-01-30"
         }, 
         {
-            "location": "/changelog/index.html#added_5", 
+            "location": "/changelog/index.html#added_6", 
             "text": "Introduce  sensiolabs/behat-page-object-extension  for future development.", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#fixed_8", 
+            "location": "/changelog/index.html#fixed_9", 
             "text": "Miscellanous driver fixes, especially WP-CLI over SSH.", 
             "title": "Fixed"
         }, 
         {
-            "location": "/changelog/index.html#changed_7", 
+            "location": "/changelog/index.html#changed_8", 
             "text": "Documentation.  Website design and performance improvements.  Travis-CI improvements.", 
             "title": "Changed"
         }, 
@@ -436,12 +461,12 @@
             "title": "0.3.0 - 2017-01-07"
         }, 
         {
-            "location": "/changelog/index.html#added_6", 
+            "location": "/changelog/index.html#added_7", 
             "text": "Miscellanous driver fixes.  First pass at Contexts.", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#changed_8", 
+            "location": "/changelog/index.html#changed_9", 
             "text": "Documentation.", 
             "title": "Changed"
         }, 
@@ -451,17 +476,17 @@
             "title": "0.2.0 - 2016-11-26"
         }, 
         {
-            "location": "/changelog/index.html#added_7", 
+            "location": "/changelog/index.html#added_8", 
             "text": "WP-API and blackbox drivers.  Website/documentation.  Database import/export methods to drivers.", 
             "title": "Added"
         }, 
         {
-            "location": "/changelog/index.html#changed_9", 
+            "location": "/changelog/index.html#changed_10", 
             "text": "Adjusted exceptions thrown by DriverManager and Drivers.  Design adjustments to website.", 
             "title": "Changed"
         }, 
         {
-            "location": "/changelog/index.html#fixed_9", 
+            "location": "/changelog/index.html#fixed_10", 
             "text": "Miscellanous WP-CLI driver fixes.", 
             "title": "Fixed"
         }, 
@@ -471,7 +496,7 @@
             "title": "0.1.0 - 2016-09-22"
         }, 
         {
-            "location": "/changelog/index.html#added_8", 
+            "location": "/changelog/index.html#added_9", 
             "text": "First working version of basic architecture.", 
             "title": "Added"
         }, 
