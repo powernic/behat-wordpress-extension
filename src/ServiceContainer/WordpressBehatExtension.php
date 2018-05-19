@@ -1,39 +1,47 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 namespace PaulGibbs\WordpressBehatExtension\ServiceContainer;
 
 use Behat\Behat\Context\ServiceContainer\ContextExtension;
 use Behat\Testwork\ServiceContainer\Extension as ExtensionInterface;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
 use Behat\Testwork\ServiceContainer\ServiceProcessor;
-
-use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use PaulGibbs\WordpressBehatExtension\Compiler\DriverElementPass;
+use PaulGibbs\WordpressBehatExtension\Compiler\DriverPass;
+use PaulGibbs\WordpressBehatExtension\Compiler\EventSubscriberPass;
+use PaulGibbs\WordpressBehatExtension\Driver\DriverManagerInterface;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use Symfony\Component\Config\Definition\Builder\NodeBuilder;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 use Symfony\Component\DependencyInjection\Loader\FileLoader;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-
-use PaulGibbs\WordpressBehatExtension\Compiler\DriverPass;
-use PaulGibbs\WordpressBehatExtension\Compiler\DriverElementPass;
-use PaulGibbs\WordpressBehatExtension\Compiler\EventSubscriberPass;
-
-use RuntimeException;
 
 /**
  * Main part of the Behat extension.
  */
 class WordpressBehatExtension implements ExtensionInterface
 {
+
     /**
+     *
      * @var ServiceProcessor
      */
     protected $processor;
 
     /**
+     *
+     * @var string
+     */
+    const CONFIG_KEY = 'wordpress';
+
+    /**
      * Constructor.
      *
-     * @param ServiceProcessor|null $processor Optional.
+     * @param ServiceProcessor|null $processor
+     *            Optional.
      */
     public function __construct(ServiceProcessor $processor = null)
     {
@@ -47,7 +55,7 @@ class WordpressBehatExtension implements ExtensionInterface
      */
     public function getConfigKey(): string
     {
-        return 'wordpress';
+        return self::CONFIG_KEY;
     }
 
     /**
@@ -57,6 +65,8 @@ class WordpressBehatExtension implements ExtensionInterface
      * before any extension `configure()` method is called. This allows extensions
      * to hook into the configuration of other extensions providing such an
      * extension point.
+     *
+     * In this case WordHat needs the PageObjectExtension, so we activate it here.
      *
      * @param ExtensionManager $extension_manager
      */
@@ -74,20 +84,22 @@ class WordpressBehatExtension implements ExtensionInterface
     {
         $builder
             ->children()
-                // Common settings.
+            // Common settings.
                 ->enumNode('default_driver')
                     // "wpapi" is for backwards compatibility; means "wpphp".
-                    ->values(['wpcli', 'wpapi', 'wpphp', 'blackbox'])
+                    ->values(['wpcli','wpapi','wpphp','blackbox'])
                     ->defaultValue('wpcli')
                 ->end()
                 ->scalarNode('path')
                     ->defaultValue('')
                 ->end()
 
-                // WordPress' "siteurl" option.
-                ->scalarNode('site_url')->defaultValue('%mink.base_url%')->end()
+            // WordPress' "siteurl" option.
+                ->scalarNode('site_url')
+                    ->defaultValue('%mink.base_url%')
+                ->end()
 
-                // Account roles -> username/password.
+            // Account roles -> username/password.
                 ->arrayNode('users')
                     ->addDefaultsIfNotSet()
                     ->children()
@@ -102,7 +114,6 @@ class WordpressBehatExtension implements ExtensionInterface
                                 ->end()
                             ->end()
                         ->end()
-
                         ->arrayNode('editor')
                             ->addDefaultsIfNotSet()
                             ->children()
@@ -114,7 +125,6 @@ class WordpressBehatExtension implements ExtensionInterface
                                 ->end()
                             ->end()
                         ->end()
-
                         ->arrayNode('author')
                             ->addDefaultsIfNotSet()
                             ->children()
@@ -126,7 +136,6 @@ class WordpressBehatExtension implements ExtensionInterface
                                 ->end()
                             ->end()
                         ->end()
-
                         ->arrayNode('contributor')
                             ->addDefaultsIfNotSet()
                             ->children()
@@ -138,7 +147,6 @@ class WordpressBehatExtension implements ExtensionInterface
                                 ->end()
                             ->end()
                         ->end()
-
                         ->arrayNode('subscriber')
                             ->addDefaultsIfNotSet()
                             ->children()
@@ -153,32 +161,33 @@ class WordpressBehatExtension implements ExtensionInterface
                     ->end()
                 ->end()
 
-                // WP-CLI driver.
+            // WP-CLI driver.
                 ->arrayNode('wpcli')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('alias')->end()
+                        ->scalarNode('alias')
+                        ->end()
                         ->scalarNode('binary')
                             ->defaultValue('wp')
                         ->end()
                     ->end()
                 ->end()
 
-                // WordPress PHP driver.
+            // WordPress PHP driver.
                 ->arrayNode('wpphp')
                     ->addDefaultsIfNotSet()
                     ->children()
                     ->end()
                 ->end()
 
-                // Blackbox driver.
+            // Blackbox driver.
                 ->arrayNode('blackbox')
                     ->addDefaultsIfNotSet()
                     ->children()
                     ->end()
                 ->end()
 
-                // Database management.
+            // Database management.
                 ->arrayNode('database')
                     ->addDefaultsIfNotSet()
                     ->children()
@@ -190,7 +199,7 @@ class WordpressBehatExtension implements ExtensionInterface
                     ->end()
                 ->end()
 
-                // Permalink patterns.
+            // Permalink patterns.
                 ->arrayNode('permalinks')
                     ->addDefaultsIfNotSet()
                     ->children()
@@ -200,7 +209,7 @@ class WordpressBehatExtension implements ExtensionInterface
                     ->end()
                 ->end()
 
-                // Internal use only. Don't use it. Or else.
+            // Internal use only. Don't use it. Or else.
                 ->arrayNode('internal')
                     ->addDefaultsIfNotSet()
                 ->end()
@@ -216,21 +225,35 @@ class WordpressBehatExtension implements ExtensionInterface
      */
     public function load(ContainerBuilder $container, array $config)
     {
+        $container->registerForAutoconfiguration(DriverManagerInterface::class)->addTag('wordpress.driver');
+
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/config'));
         $loader->load('services.yml');
 
+        $this->setParameters($container, $config);
+
+        $container->addCompilerPass(new DriverPass());
+        $container->addCompilerPass(new DriverElementPass());
+        $container->addCompilerPass(new EventSubscriberPass());
+    }
+
+    /**
+     * Register settings with symfony
+     *
+     * @param ContainerBuilder $container
+     * @param array $config
+     */
+    protected function setParameters(ContainerBuilder $container, array $config)
+    {
         // Backwards compatibility for pre-1.0. Will be removed in 2.0.
         if ($config['default_driver'] === 'wpapi') {
             $config['default_driver'] = 'wpphp';
         }
 
-        $container->setParameter('wordpress.wordpress.default_driver', $config['default_driver']);
+        $container->setParameter('wordpress.site_url', $config['site_url']);
+        $container->setParameter('wordpress.default_driver', $config['default_driver']);
         $container->setParameter('wordpress.path', $config['path']);
         $container->setParameter('wordpress.parameters', $config);
-
-        $this->setupWpcliDriver($loader, $container, $config);
-        $this->setupWpphpDriver($loader, $container, $config);
-        $this->setupBlackboxDriver($loader, $container, $config);
     }
 
     /**
@@ -245,15 +268,11 @@ class WordpressBehatExtension implements ExtensionInterface
         if (! isset($config['wpcli'])) {
             return;
         }
-
-        $loader->load('drivers/wpcli.yml');
-
+        // $loader->load('drivers/wpcli.yml');
         $config['wpcli']['alias'] = isset($config['wpcli']['alias']) ? $config['wpcli']['alias'] : '';
         $container->setParameter('wordpress.driver.wpcli.alias', $config['wpcli']['alias']);
-
         $config['wpcli']['path'] = isset($config['path']) ? $config['path'] : '';
         $container->setParameter('wordpress.driver.wpcli.path', $config['path']);
-
         $config['wpcli']['binary'] = isset($config['wpcli']['binary']) ? $config['wpcli']['binary'] : null;
         $container->setParameter('wordpress.driver.wpcli.binary', $config['wpcli']['binary']);
     }
@@ -267,14 +286,10 @@ class WordpressBehatExtension implements ExtensionInterface
      */
     protected function setupWpphpDriver(FileLoader $loader, ContainerBuilder $container, array $config)
     {
-        if (! isset($config['wpphp'])) {
-            return;
-        }
-
         $loader->load('drivers/wpphp.yml');
 
         $config['wpphp']['path'] = isset($config['path']) ? $config['path'] : '';
-        $container->setParameter('wordpress.driver.wpphp.path', $config['wpphp']['path']);
+        $container->setParameter('wordpress.driver.path', $config['wpphp']['path']);
     }
 
     /**
@@ -300,46 +315,51 @@ class WordpressBehatExtension implements ExtensionInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $this->processDriverPass($container);
-        $this->processDriverElementPass($container);
-        $this->processEventSubscriberPass($container);
-        $this->processClassGenerator($container);
-
         $this->setPageObjectNamespaces($container);
         $this->injectSiteUrlIntoPageObjects($container);
+        $this->listServicesAndTags($container);
     }
 
     /**
-     * Set up driver registration.
+     * Helper method for debugging the compiler passes.
      *
-     * @param ContainerBuilder $container
+     * When called all the services are sent to stdout.
      */
-    protected function processDriverPass(ContainerBuilder $container)
+    private function listServicesAndTags(ContainerBuilder $container)
     {
-        $driver = new DriverPass();
-        $driver->process($container);
-    }
+        $serviceIds = $container->getServiceIds();
 
-    /**
-     * Set up driver extension registration.
-     *
-     * @param ContainerBuilder $container
-     */
-    protected function processDriverElementPass(ContainerBuilder $container)
-    {
-        $driver = new DriverElementPass();
-        $driver->process($container);
-    }
+        foreach ($serviceIds as $serviceId) {
+            echo "\tServiceId: " . $serviceId, ',';
+            try {
+                $definition = $container->getDefinition($serviceId);
+                $class = $definition->getClass();
+                echo 'Class: ' . $class, ',';
+                $tags = $definition->getTags();
+                if ($tags) {
+                    $tagInformation = array();
+                    foreach ($tags as $tagName => $tagData) {
+                        echo "[$tagName";
+                        foreach ($tagData as $tagParameters) {
+                            $parameters = array_map(function ($key, $value) {
+                                return sprintf('%s: %s', $key, $value);
+                            }, array_keys($tagParameters), array_values($tagParameters));
 
-    /**
-     * Process the Event Subscriber Pass.
-     *
-     * @param ContainerBuilder $container
-     */
-    private function processEventSubscriberPass(ContainerBuilder $container)
-    {
-        $event = new EventSubscriberPass();
-        $event->process($container);
+                            $parameters = implode(', ', $parameters);
+                            if ('' !== $parameters) {
+                                $tagInformation[] = sprintf('(%s)', $parameters);
+                            }
+                        }
+                        echo implode(',', $tagInformation) . ']';
+                    }
+                }
+                echo "\n";
+            } catch (ServiceNotFoundException $e) {
+                echo "\n";
+                continue;
+            }
+            // print_r(array_merge( class_parents("$class"), class_implements("$class")));
+        }
     }
 
     /**
@@ -351,6 +371,7 @@ class WordpressBehatExtension implements ExtensionInterface
      */
     protected function processClassGenerator(ContainerBuilder $container)
     {
+        echo __FUNCTION__ . "\n";
         $definition = new Definition('PaulGibbs\WordpressBehatExtension\Context\ContextClass\ClassGenerator');
         $container->setDefinition(ContextExtension::CLASS_GENERATOR_TAG . '.simple', $definition);
     }

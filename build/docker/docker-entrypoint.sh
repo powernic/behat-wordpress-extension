@@ -7,7 +7,7 @@ build/docker/install-composer.sh
 ./composer --no-ansi install --no-ansi --no-interaction --prefer-dist --no-progress
 # wait for mysql to come up
 
-while ! mysqladmin ping -h "db" --silent; do
+while ! mysqladmin ping -h "db"; do
     echo "Waiting for mysql..."
     sleep 5
 done

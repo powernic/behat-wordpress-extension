@@ -2,9 +2,9 @@
 declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension;
 
-use PaulGibbs\WordpressBehatExtension\Driver\DriverInterface;
-use PaulGibbs\WordpressBehatExtension\Driver\Element\ElementInterface;
-
+use Behat\Mink\Driver\DriverInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\DriverManagerInterface;
+use PaulGibbs\WordpressBehatExtension\Driver\Element\Interfaces\ElementInterface;
 use InvalidArgumentException;
 
 /**
@@ -55,8 +55,9 @@ class WordpressDriverManager
      * @param string          $name   Driver name.
      * @param DriverInterface $driver An instance of a DriverInterface.
      */
-    public function registerDriver(string $name, DriverInterface $driver)
+    public function registerDriver(string $name, DriverManagerInterface $driver)
     {
+        print("Registering driver: $name");
         $name = strtolower($name);
         $this->drivers[$name] = $driver;
     }
@@ -83,11 +84,9 @@ class WordpressDriverManager
      * @param string $name      Optional. The name of the driver to return. If omitted, the default driver is returned.
      * @param string $bootstrap Optional. If "skip bootstrap", driver bootstrap is skipped. Default: "do bootstrap".
      *
-     * @return DriverInterface The requested driver.
-     *
      * @throws \InvalidArgumentException
      */
-    public function getDriver(string $name = '', string $bootstrap = 'do bootstrap'): DriverInterface
+    public function getDriver(string $name = '', string $bootstrap = 'do bootstrap')
     {
         $do_bootstrap = ($bootstrap === 'do bootstrap');
         $name         = $name ? strtolower($name) : $this->default_driver;
@@ -127,9 +126,9 @@ class WordpressDriverManager
     {
         $name = strtolower($name);
 
-        if (! isset($this->drivers[$name])) {
+        /* if (! isset($this->drivers[$name])) {
             throw new InvalidArgumentException("[W002] Driver '{$name}' is not registered.");
-        }
+        } */
 
         $this->default_driver = $name;
     }
