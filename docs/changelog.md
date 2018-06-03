@@ -4,6 +4,18 @@ description: WordHat project news and changelog
 ## Master branch
 - tbc
 
+## [2.0.0] - 2018-06-03
+### Added
+- Website: add "Open Source" page, and misc. SEO improvements.
+- Drivers, WP-CLI: in `CommentElement::create()`, add support for `comment_approved`, `comment_karma`, and `comment_type` arguments.
+
+### Changed
+- WordHat now requires PHP 7.1+.
+- Build tooling and continuous integration reliability improvements.
+
+### Fixed
+- Fix null session when first step asserts a log-in.
+
 ## [1.2.0] - 2018-03-20
 ### Added
 - [All PHP exceptions now include an error code](/recipes/errors/overview.md).
