@@ -24,6 +24,7 @@ class CommentElement extends BaseElement
             array(
                 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content', 'comment_date',
                 'comment_date_gmt', 'comment_parent', 'comment_post_ID', 'user_id', 'comment_agent', 'comment_author_IP',
+                'comment_approved', 'comment_karma', 'comment_type',
             ),
             $args
         );
