@@ -30,7 +30,7 @@ class UserElement extends BaseElement
             $args
         );
 
-        array_unshift($wpcli_args, $args['user_login'], $args['user_email'], '--porcelain');
+        array_unshift($wpcli_args, escapeshellcmd($args['user_login']), $args['user_email'], '--porcelain');
         $user_id = (int) $this->drivers->getDriver()->wpcli('user', 'create', $wpcli_args)['stdout'];
 
         return $this->get($user_id);
