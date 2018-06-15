@@ -2,7 +2,6 @@ default:
   suites:
     default:
       contexts:
-        # Keep WordpressContext first!
         - PaulGibbs\WordpressBehatExtension\Context\WordpressContext
         - FeatureContext
         - Behat\MinkExtension\Context\MinkContext
