@@ -57,7 +57,7 @@ Option           | Default value | Description
 `database.restore_after_test` | false | _Optional_.<br>If <code>true</code>, [WordHat will restore your site's database to its initial state between feature tests](/recipes/content.md).
 `database.backup_path` | _see example_ | _Optional_.<br>If <code>restore_after_test</code> is true, and the value is a file path, WordHat will use that as the back up to restore the database from.<br>If the path is a directory, then before any tests are run, WordHat will generate a database back up and store it here.<br>If the path has not been set, WordHat will choose its own temporary folder.
 `wpcli.alias`    | null          | _Optional_.<br>[WP-CLI alias](https://wp-cli.org/commands/cli/alias/) (preferred over `wpcli.path`).
-`wpcli.binary`   | `wp`          | _Optional_.<br>Path and name of WP-CLI binary.
+`wpcli.binary`   | `wp`          | _Optional_.<br>Path and name of WP-CLI binary.<br>Also supports shell commands (e.g. `cd ~/bin && ./wp`).
 
 
 ## Per-environment settings
