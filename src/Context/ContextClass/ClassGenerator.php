@@ -17,13 +17,12 @@ class ClassGenerator implements BehatContextGenerator
 <?php
 {namespace}use PaulGibbs\WordpressBehatExtension\Context\RawWordpressContext;
 
-use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Tester\Exception\PendingException;
 
 /**
  * Define application features from the specific context.
  */
-class {class_name} extends RawWordpressContext implements SnippetAcceptingContext {
+class {class_name} extends RawWordpressContext {
 
     /**
      * Initialise context.
