@@ -242,12 +242,12 @@
         }, 
         {
             "location": "/recipes/errors/overview/index.html", 
-            "text": "Exception error codes\n\n\nWhen WordHat is forced to throw a user-facing PHP exception, an error code beginning with \nW\n will be included at the start of the message. This documentation is provided to help you better understand the error, and in some cases, provide extra information to help you resolve the problem.\n\n\nThe range of valid error codes is \nW000\n to \nW999\n:\n\n\n\n\nW000-099\n represent miscellanous internal errors.\n\n\nW100-199\n represent internal errors related to the WP-CLI driver.\n\n\nW200-299\n represent internal errors related to the WP-PHP driver.\n\n\nW300-399\n are reserved for future use.\n\n\nW400-499\n represent errors related to \nPageObjects\n used by the drivers.\n\n\nW500-599\n represent errors from the WP-CLI driver.\n\n\nW600-699\n represent errors from the WP-PHP driver.\n\n\nW700-799\n are reserved for future use.\n\n\nW800-999\n are reserved for future use.", 
+            "text": "Exception error codes\n\n\nWhen WordHat is forced to throw a user-facing PHP exception, an error code beginning with \nW\n will be included at the start of the message. This documentation is provided to help you better understand the error, and in some cases, provide extra information to help you resolve the problem.\n\n\nThe range of valid error codes is \nW000\n to \nW999\n:\n\n\n\n\nW000-099\n represent miscellanous internal errors.\n\n\nW100-199\n represent internal errors related to the WP-CLI driver.\n\n\nW200-299\n represent internal errors related to the WP-PHP driver.\n\n\nW300-399\n are reserved for future use.\n\n\nW400-499\n represent errors related to \nPageObjects\n used by the drivers.\n\n\nW500-599\n represent errors from the WP-CLI driver.\n\n\nW600-699\n represent errors from the WP-PHP driver.\n\n\nW700-799\n are reserved for future use.\n\n\nW800-899\n represent errors from Behat contexts (and associated plumbing).\n\n\nW900-999\n are reserved for future use.", 
             "title": "Overview"
         }, 
         {
             "location": "/recipes/errors/overview/index.html#exception-error-codes", 
-            "text": "When WordHat is forced to throw a user-facing PHP exception, an error code beginning with  W  will be included at the start of the message. This documentation is provided to help you better understand the error, and in some cases, provide extra information to help you resolve the problem.  The range of valid error codes is  W000  to  W999 :   W000-099  represent miscellanous internal errors.  W100-199  represent internal errors related to the WP-CLI driver.  W200-299  represent internal errors related to the WP-PHP driver.  W300-399  are reserved for future use.  W400-499  represent errors related to  PageObjects  used by the drivers.  W500-599  represent errors from the WP-CLI driver.  W600-699  represent errors from the WP-PHP driver.  W700-799  are reserved for future use.  W800-999  are reserved for future use.", 
+            "text": "When WordHat is forced to throw a user-facing PHP exception, an error code beginning with  W  will be included at the start of the message. This documentation is provided to help you better understand the error, and in some cases, provide extra information to help you resolve the problem.  The range of valid error codes is  W000  to  W999 :   W000-099  represent miscellanous internal errors.  W100-199  represent internal errors related to the WP-CLI driver.  W200-299  represent internal errors related to the WP-PHP driver.  W300-399  are reserved for future use.  W400-499  represent errors related to  PageObjects  used by the drivers.  W500-599  represent errors from the WP-CLI driver.  W600-699  represent errors from the WP-PHP driver.  W700-799  are reserved for future use.  W800-899  represent errors from Behat contexts (and associated plumbing).  W900-999  are reserved for future use.", 
             "title": "Exception error codes"
         }, 
         {
@@ -272,7 +272,7 @@
         }, 
         {
             "location": "/recipes/errors/w100-199/index.html", 
-            "text": "Error codes W100-199\n\n\nThese errors should only appear if something internal to the WP-CLI driver has gone wrong.\n\n\nW100\n\n\n\n\nYour WP-CLI is too old; version 1.5.0 or newer is required.\n\n\n\n\nCheck WordHat\ns \nsystem requirements\n.\n\n\nW101\n\n\n\n\nWordPress does not seem to be installed. Check \npath\n and/or \nalias\n settings in behat.yml\n\n\n\n\nWP-CLI\n cannot find WordPress. Check WordHat\ns \nconfiguration settings\n.\n\n\nW102\n\n\n\n\nWP-CLI driver failure in method (\n):\n(\n).\n\n\nTried to run: (\n)\n\n\n\n\nWP-CLI could not execute the requested command. Read the output for further information, and check WordHat\ns \nconfiguration settings\n.", 
+            "text": "Error codes W100-199\n\n\nThese errors should only appear if something internal to the WP-CLI driver has gone wrong.\n\n\nW100\n\n\n\n\nYour WP-CLI is too old; version 1.5.0 or newer is required.\n\n\n\n\nCheck WordHat\ns \nsystem requirements\n.\n\n\nW101\n\n\n\n\nWordPress does not seem to be installed. Check \npath\n and/or \nalias\n settings in behat.yml\n\n\n\n\nWP-CLI\n cannot find WordPress. Check WordHat\ns \nconfiguration settings\n.\n\n\nW102\n\n\n\n\nWP-CLI driver failure in method (\n):\n\n\nTried to run: (\n)\n\n\n\n\nWP-CLI could not execute the requested command. Read the output for further information, and check WordHat\ns \nconfiguration settings\n.", 
             "title": "Errors W100-199"
         }, 
         {
@@ -292,7 +292,7 @@
         }, 
         {
             "location": "/recipes/errors/w100-199/index.html#w102", 
-            "text": "WP-CLI driver failure in method ( ):\n( ).  Tried to run: ( )   WP-CLI could not execute the requested command. Read the output for further information, and check WordHat s  configuration settings .", 
+            "text": "WP-CLI driver failure in method ( ):  Tried to run: ( )   WP-CLI could not execute the requested command. Read the output for further information, and check WordHat s  configuration settings .", 
             "title": "W102"
         }, 
         {
@@ -312,7 +312,7 @@
         }, 
         {
             "location": "/recipes/errors/w400-499/index.html", 
-            "text": "Error codes W400-499\n\n\nThese errors originate from \nPageObjects\n, which are used by the drivers to interact with WordPress in a way that prevents code duplication and promotes re-use.\n\n\nW400\n\n\n\n\nMetabox \n(\n)\n not found on the screen.\n\n\n\n\nThe browser cannot find the specified metabox on a content\ns new/edit screens.\nDoes the user\ns role give visibility of the metabox? Is the metabox registered for the content type?\n\n\nW401\n\n\n\n\nExpected screen is the wp-admin dashboard, instead on \n(\n)\n.\n\n\n\n\nThe browser is on an unexpected screen.\nDid something cause a redirect to another screen? Has the user authenticated?\n\n\nW402\n\n\n\n\nExpected screen header \n(\n)\n, found \n(\n)\n.\nHeader could not be found\n\n\n\n\nThe browser is on an unexpected screen, or the screen has unexpectedly changed.\nDid something cause a redirect to another screen? Has the user authenticated?\n\n\nW403\n\n\n\n\nToolbar link \n(\n)\n could not be found\n\n\n\n\nThe specified item could not be found in the WordPress Toolbar.\nHas the user authenticated? Does the user\ns role give visibility of the toolbar item?\n\n\nW404\n\n\n\n\nSearch field in the toolbar could not be found\n\n\n\n\nThe search field in the WordPress Toolbar could not be found.\nHas the user authenticated?\n\n\nW405\n\n\n\n\nMenu item could not be found\n\n\n\n\nThe specified item could not be found in the WordPress Admin Menu.\nHas the user authenticated? Does the user\ns role give visibility of the toolbar item?", 
+            "text": "Error codes W400-499\n\n\nThese errors originate from \nPageObjects\n, which are used by the drivers to interact with WordPress in a way that prevents code duplication and promotes re-use.\n\n\nW400\n\n\n\n\nMetabox \n(\n)\n not found on the screen.\n\n\n\n\nThe browser cannot find the specified metabox on a content\ns new/edit screens.\nDoes the user\ns role give visibility of the metabox? Is the metabox registered for the content type?\n\n\nW401\n\n\n\n\nExpected screen is the wp-admin dashboard, instead on \n(\n)\n.\n\n\n\n\nThe browser is on an unexpected screen.\nDid something cause a redirect to another screen? Has the user authenticated?\n\n\nW402\n\n\n\n\nExpected screen header \n(\n)\n, found \n(\n)\n.\n\n\nHeader could not be found\n\n\n\n\nThe browser is on an unexpected screen, or the screen has unexpectedly changed.\nDid something cause a redirect to another screen? Has the user authenticated?\n\n\nW403\n\n\n\n\nToolbar link \n(\n)\n could not be found\n\n\n\n\nThe specified item could not be found in the WordPress Toolbar.\nHas the user authenticated? Does the user\ns role give visibility of the toolbar item?\n\n\nW404\n\n\n\n\nSearch field in the toolbar could not be found\n\n\n\n\nThe search field in the WordPress Toolbar could not be found.\nHas the user authenticated?\n\n\nW405\n\n\n\n\nMenu item could not be found\n\n\n\n\nThe specified item could not be found in the WordPress Admin Menu.\nHas the user authenticated? Does the user\ns role give visibility of the toolbar item?\n\n\nW406\n\n\n\n\nTo create pages you need to pass a factory with setPageObjectFactory()\n\n\nTo create elements you need to pass a factory with setPageObjectFactory()\n\n\nTo access the page factory you need to pass it first with setPageObjectFactory()\n\n\n\n\nThe most likely reason for these message is that you have used the bundled \nsensiolabs/behat-page-object-extension\n package in a custom Behat context, but have not set up \nsetPageObjectFactory()\n before you\nve tried to use it. Refer to WordHat\ns own codebase, or the \nsensiolabs/behat-page-object-extension\n package\ns documentation.", 
             "title": "Errors W400-499"
         }, 
         {
@@ -332,7 +332,7 @@
         }, 
         {
             "location": "/recipes/errors/w400-499/index.html#w402", 
-            "text": "Expected screen header  ( ) , found  ( ) .\nHeader could not be found   The browser is on an unexpected screen, or the screen has unexpectedly changed.\nDid something cause a redirect to another screen? Has the user authenticated?", 
+            "text": "Expected screen header  ( ) , found  ( ) .  Header could not be found   The browser is on an unexpected screen, or the screen has unexpectedly changed.\nDid something cause a redirect to another screen? Has the user authenticated?", 
             "title": "W402"
         }, 
         {
@@ -349,6 +349,11 @@
             "location": "/recipes/errors/w400-499/index.html#w405", 
             "text": "Menu item could not be found   The specified item could not be found in the WordPress Admin Menu.\nHas the user authenticated? Does the user s role give visibility of the toolbar item?", 
             "title": "W405"
+        }, 
+        {
+            "location": "/recipes/errors/w400-499/index.html#w406", 
+            "text": "To create pages you need to pass a factory with setPageObjectFactory()  To create elements you need to pass a factory with setPageObjectFactory()  To access the page factory you need to pass it first with setPageObjectFactory()   The most likely reason for these message is that you have used the bundled  sensiolabs/behat-page-object-extension  package in a custom Behat context, but have not set up  setPageObjectFactory()  before you ve tried to use it. Refer to WordHat s own codebase, or the  sensiolabs/behat-page-object-extension  package s documentation.", 
+            "title": "W406"
         }, 
         {
             "location": "/recipes/errors/w500-599/index.html", 
@@ -494,6 +499,66 @@
             "location": "/recipes/errors/w600-699/index.html#w617", 
             "text": "Failed deleting user   WordPress could not delete the specified user account.\nDoes it exist?", 
             "title": "W617"
+        }, 
+        {
+            "location": "/recipes/errors/w800-899/index.html", 
+            "text": "Error codes W800-899\n\n\nThese errors originate from WordHat\ns Behat contexts (and associated plumbing).\n\n\nW801\n\n\n\n\nUser details for role () not found.\n\n\n\n\nWordHat cannot find the specified user account.\nDoes it exist? Check your \nbehat.yml\n for typos.\n\n\nW802\n\n\n\n\nThe user () was logged-in succesfully. This should not have happened.\n\n\n\n\nThis exception asserts that the user could not logged in; but, they were able to.\nHave you used the correct step definition?\n\n\nW803\n\n\n\n\nThe user could not be logged-in.\n\n\n\n\nWordHat could not authenticate with WordPress as the specified user.\nAssuming the user account exists, this is typically very hard to debug.\nCheck your \nbehat.yml\n for typos. Consider running the scenario in a browser so you can see where the problem occurs.\n\n\nW804\n\n\n\n\nUser with login: () exists but password is incorrect.\nUser with login: () exists, but (parameter) is not (expected value) which was specified.\nUser with login: () exists, but role (name) is not in the list of applied roles: ().\n\n\n\n\nCheck your \nbehat.yml\n for typos.\n\n\nW806\n\n\n\n\nThe text \n()\n was not found in the toolbar.\n\n\n\n\nHas the user authenticated? Can the user see the WordPress Toolbar?\n\n\nW807\n\n\n\n\nToolbar shows authenticated user is \n(value)\n, not \n(expected value)\n.\n\n\n\n\nHas the user authenticated? Can the user see the WordPress Toolbar?\nCheck your \nbehat.yml\n for typos.\n\n\nW808\n\n\n\n\nContent editor is in \n(value)\n mode. Expected \n(another mode)\n.\n\n\n\n\nIn WordPress\n Post Editor, are both TinyMCE and Rich Text views available for the \npost_content\n field?\n\n\nW809\n\n\n\n\nMetabox \n(name)\n was found on the page, but it should not be there.\n\n\n\n\nHave you used the correct step definition?\n\n\nW810\n\n\n\n\nGiven I am viewing a post:\n step must only contain one post\n\n\n\n\nThis step definition \n currently \n only accepts one post.\n\n\nW811\n\n\n\n\nContent \n(name)\n exists, but it should not.\n\n\n\n\nHave you used the correct step definition?", 
+            "title": "Errors W800-899"
+        }, 
+        {
+            "location": "/recipes/errors/w800-899/index.html#error-codes-w800-899", 
+            "text": "These errors originate from WordHat s Behat contexts (and associated plumbing).", 
+            "title": "Error codes W800-899"
+        }, 
+        {
+            "location": "/recipes/errors/w800-899/index.html#w801", 
+            "text": "User details for role () not found.   WordHat cannot find the specified user account.\nDoes it exist? Check your  behat.yml  for typos.", 
+            "title": "W801"
+        }, 
+        {
+            "location": "/recipes/errors/w800-899/index.html#w802", 
+            "text": "The user () was logged-in succesfully. This should not have happened.   This exception asserts that the user could not logged in; but, they were able to.\nHave you used the correct step definition?", 
+            "title": "W802"
+        }, 
+        {
+            "location": "/recipes/errors/w800-899/index.html#w803", 
+            "text": "The user could not be logged-in.   WordHat could not authenticate with WordPress as the specified user.\nAssuming the user account exists, this is typically very hard to debug.\nCheck your  behat.yml  for typos. Consider running the scenario in a browser so you can see where the problem occurs.", 
+            "title": "W803"
+        }, 
+        {
+            "location": "/recipes/errors/w800-899/index.html#w804", 
+            "text": "User with login: () exists but password is incorrect.\nUser with login: () exists, but (parameter) is not (expected value) which was specified.\nUser with login: () exists, but role (name) is not in the list of applied roles: ().   Check your  behat.yml  for typos.", 
+            "title": "W804"
+        }, 
+        {
+            "location": "/recipes/errors/w800-899/index.html#w806", 
+            "text": "The text  ()  was not found in the toolbar.   Has the user authenticated? Can the user see the WordPress Toolbar?", 
+            "title": "W806"
+        }, 
+        {
+            "location": "/recipes/errors/w800-899/index.html#w807", 
+            "text": "Toolbar shows authenticated user is  (value) , not  (expected value) .   Has the user authenticated? Can the user see the WordPress Toolbar?\nCheck your  behat.yml  for typos.", 
+            "title": "W807"
+        }, 
+        {
+            "location": "/recipes/errors/w800-899/index.html#w808", 
+            "text": "Content editor is in  (value)  mode. Expected  (another mode) .   In WordPress  Post Editor, are both TinyMCE and Rich Text views available for the  post_content  field?", 
+            "title": "W808"
+        }, 
+        {
+            "location": "/recipes/errors/w800-899/index.html#w809", 
+            "text": "Metabox  (name)  was found on the page, but it should not be there.   Have you used the correct step definition?", 
+            "title": "W809"
+        }, 
+        {
+            "location": "/recipes/errors/w800-899/index.html#w810", 
+            "text": "Given I am viewing a post:  step must only contain one post   This step definition   currently   only accepts one post.", 
+            "title": "W810"
+        }, 
+        {
+            "location": "/recipes/errors/w800-899/index.html#w811", 
+            "text": "Content  (name)  exists, but it should not.   Have you used the correct step definition?", 
+            "title": "W811"
         }, 
         {
             "location": "/contributing/open-source/index.html", 

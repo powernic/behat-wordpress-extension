@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.0">
+      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.1">
     
     
       
@@ -46,7 +46,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.4f4f49e8.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.ba0fd1a6.css">
       
         <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.6079476c.css">
       
@@ -672,6 +672,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#w406" title="W406" class="md-nav__link">
+    W406
+  </a>
+  
+</li>
+      
       
       
       
@@ -703,6 +710,18 @@
   <li class="md-nav__item">
     <a href="../w600-699/index.html" title="Errors W600-699" class="md-nav__link">
       Errors W600-699
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../w800-899/index.html" title="Errors W800-899" class="md-nav__link">
+      Errors W800-899
     </a>
   </li>
 
@@ -887,6 +906,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#w406" title="W406" class="md-nav__link">
+    W406
+  </a>
+  
+</li>
+      
       
       
       
@@ -919,8 +945,8 @@ Does the user&rsquo;s role give visibility of the metabox? Is the metabox regist
 Did something cause a redirect to another screen? Has the user authenticated?</p>
 <h2 id="w402">W402<a class="headerlink" href="#w402" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>Expected screen header &ldquo;(&hellip;)&rdquo;, found &ldquo;(&hellip;)&rdquo;.
-Header could not be found</p>
+<p>Expected screen header &ldquo;(&hellip;)&rdquo;, found &ldquo;(&hellip;)&rdquo;.</p>
+<p>Header could not be found</p>
 </blockquote>
 <p>The browser is on an unexpected screen, or the screen has unexpectedly changed.
 Did something cause a redirect to another screen? Has the user authenticated?</p>
@@ -942,6 +968,13 @@ Has the user authenticated?</p>
 </blockquote>
 <p>The specified item could not be found in the WordPress Admin Menu.
 Has the user authenticated? Does the user&rsquo;s role give visibility of the toolbar item?</p>
+<h2 id="w406">W406<a class="headerlink" href="#w406" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>To create pages you need to pass a factory with setPageObjectFactory()</p>
+<p>To create elements you need to pass a factory with setPageObjectFactory()</p>
+<p>To access the page factory you need to pass it first with setPageObjectFactory()</p>
+</blockquote>
+<p>The most likely reason for these message is that you have used the bundled <code>sensiolabs/behat-page-object-extension</code> package in a custom Behat context, but have not set up <code>setPageObjectFactory()</code> before you&rsquo;ve tried to use it. Refer to WordHat&rsquo;s own codebase, or the <code>sensiolabs/behat-page-object-extension</code> package&rsquo;s documentation.</p>
 
               
                 
