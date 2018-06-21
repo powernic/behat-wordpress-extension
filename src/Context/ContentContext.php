@@ -54,7 +54,7 @@ class ContentContext extends RawWordpressContext
             $post_data_hash = $post_data_or_title->getHash();
 
             if (count($post_data_hash) > 1) {
-                throw new UnexpectedValueException('"Given I am viewing a post:" step must only contain one post');
+                throw new UnexpectedValueException('[W810] "Given I am viewing a post:" step must only contain one post');
             }
 
             $post = $this->createContent($this->parseArgs($post_data_hash[0]));
@@ -106,7 +106,6 @@ class ContentContext extends RawWordpressContext
             return;
         }
 
-        // Throw a wobbly if the content exists.
-        throw new RuntimeException(sprintf('Could not delete content: "%s"', $post_title));
+        throw new RuntimeException(sprintf('[W811] Content "%s" exists, but it should not.', $post_title));
     }
 }

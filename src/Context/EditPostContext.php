@@ -140,7 +140,7 @@ class EditPostContext extends RawWordpressContext
         $content_editor = $this->edit_post_page->getContentEditor();
         if (strtoupper($mode) !== $content_editor->getMode()) {
             throw new ExpectationException(
-                sprintf('Content editor is in "%1$s" mode. Expected "%2$s".', $content_editor->getMode(), $mode),
+                sprintf('[W808] Content editor is in "%1$s" mode. Expected "%2$s".', $content_editor->getMode(), $mode),
                 $this->getSession()->getDriver()
             );
         }
@@ -219,7 +219,7 @@ class EditPostContext extends RawWordpressContext
 
         throw new ExpectationException(
             sprintf(
-                'Metabox "%s" was found on the page, but it should not be there.',
+                '[W809] Metabox "%s" was found on the page, but it should not be there.',
                 $title
             ),
             $this->getSession()->getDriver()

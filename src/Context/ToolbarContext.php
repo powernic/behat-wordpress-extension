@@ -41,7 +41,7 @@ class ToolbarContext extends RawWordpressContext
         $regex   = '/' . preg_quote($text, '/') . '/ui';
 
         if (! preg_match($regex, $actual)) {
-            $message = sprintf('The text "%s" was not found in the toolbar', $text);
+            $message = sprintf('[W806] The text "%s" was not found in the toolbar', $text);
             throw new ElementTextException($message, $this->getSession()->getDriver(), $toolbar);
         }
     }
@@ -61,7 +61,7 @@ class ToolbarContext extends RawWordpressContext
         $actual  = $toolbar->getAuthenticatedUserText();
 
         if ($username !== $actual) {
-            $message = sprintf('Toolbar shows authenticated user is "%1$s", not "%2$s"', $actual, $username);
+            $message = sprintf('[W807] Toolbar shows authenticated user is "%1$s", not "%2$s"', $actual, $username);
             throw new ElementTextException($message, $this->getSession()->getDriver(), $toolbar);
         }
     }
