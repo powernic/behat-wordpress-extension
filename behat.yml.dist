@@ -31,7 +31,8 @@ default:
       default_driver: wpcli
       path: /path/to/wordpress
       users:
-        admin:
+        -
+          role: administrator
           username: admin
           password: admin
       database:
