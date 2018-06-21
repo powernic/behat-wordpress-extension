@@ -77,6 +77,7 @@ pages:
       - Errors W400-499: recipes/errors/w400-499.md
       - Errors W500-599: recipes/errors/w500-599.md
       - Errors W600-699: recipes/errors/w600-699.md
+      - Errors W800-899: recipes/errors/w800-899.md
   - Open Source:
     - Contributing: contributing/open-source.md
     - Build Process: contributing/build.md

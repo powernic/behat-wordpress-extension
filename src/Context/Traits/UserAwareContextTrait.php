@@ -57,7 +57,7 @@ trait UserAwareContextTrait
         $page->findButton('wp-submit')->click();
 
         if (! $this->loggedIn()) {
-            throw new ExpectationException('The user could not be logged-in.', $this->getSession()->getDriver());
+            throw new ExpectationException('[W803] The user could not be logged-in.', $this->getSession()->getDriver());
         }
     }
 
@@ -160,7 +160,7 @@ trait UserAwareContextTrait
             if ($parameter === 'password') {
                 try {
                     if (! $this->getDriver()->user->validateCredentials($args['user_login'], $value)) {
-                        throw new UnexpectedValueException('User with login : ' . $user->user_login . ' exists but password is incorrect');
+                        throw new UnexpectedValueException('[W804] User with login: ' . $user->user_login . ' exists but password is incorrect');
                     }
                 } catch (UnsupportedDriverActionException $exception) {
                     // WPCLI can't do this yet.
@@ -168,7 +168,7 @@ trait UserAwareContextTrait
             }
 
             if ($this->isValidUserParameter($parameter) && $user->$parameter !== $args[$parameter]) {
-                throw new UnexpectedValueException('User with login : ' . $user->user_login . 'exists, but ' . $parameter . ' is ' . $user->$parameter . ' not ' . $args[$parameter] . 'which was specified');
+                throw new UnexpectedValueException('[W804] User with login: ' . $user->user_login . 'exists, but ' . $parameter . ' is ' . $user->$parameter . ' not ' . $args[$parameter] . 'which was specified');
             }
         }
 
@@ -195,7 +195,7 @@ trait UserAwareContextTrait
 
         if (! in_array($role, $roles, true)) { // if its an array check the role is in that array
             $message = sprintf(
-                'User with login : %s exists, but role %s is not in the list of applied roles: %s',
+                '[W804] User with login: %s exists, but role %s is not in the list of applied roles: %s',
                 $user->user_login,
                 $role,
                 $roles

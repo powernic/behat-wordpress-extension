@@ -74,7 +74,7 @@ class UserContext extends RawWordpressContext
         $users = $this->getWordpressParameter('users');
 
         if ($users === null || empty($users[$role])) {
-            throw new RuntimeException("User details for role \"{$role}\" not found.");
+            throw new RuntimeException("[W801] User details for role \"{$role}\" not found.");
         }
 
         $this->visitPath(sprintf(
@@ -114,7 +114,7 @@ class UserContext extends RawWordpressContext
         $users = $this->getWordpressParameter('users');
 
         if ($users === null || empty($users[$role])) {
-            throw new RuntimeException("User details for role \"{$role}\" not found.");
+            throw new RuntimeException("[W801] User details for role \"{$role}\" not found.");
         }
 
         $this->logIn($users[$role]['username'], $users[$role]['password']);
@@ -145,7 +145,7 @@ class UserContext extends RawWordpressContext
 
         throw new ExpectationException(
             sprintf(
-                'The user "%s" was logged-in succesfully. This should not have happened.',
+                '[W802] The user "%s" was logged-in succesfully. This should not have happened.',
                 $role
             ),
             $this->getSession()->getDriver()
