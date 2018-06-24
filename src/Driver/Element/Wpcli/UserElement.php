@@ -21,6 +21,18 @@ class UserElement extends BaseElement
      */
     public function create($args)
     {
+        $extra_roles = [];
+
+        // Store multiple roles; WP can only assign one on user creation.
+        if (! empty($args['role'])) {
+            if (! is_array($args['role'])) {
+                $args['role'] = array_map('trim', explode(',', $args['role']));
+            }
+
+            $extra_roles  = $args['role'];
+            $args['role'] = array_shift($extra_roles);
+        }
+
         $wpcli_args = buildCLIArgs(
             array(
                 'ID', 'user_pass', 'user_nicename', 'user_url', 'display_name', 'nickname', 'first_name', 'last_name',
@@ -32,6 +44,18 @@ class UserElement extends BaseElement
 
         array_unshift($wpcli_args, escapeshellcmd($args['user_login']), $args['user_email'], '--porcelain');
         $user_id = (int) $this->drivers->getDriver()->wpcli('user', 'create', $wpcli_args)['stdout'];
+
+        // Assign any extra roles.
+        foreach ($extra_roles as $role) {
+            $this->drivers->getDriver()->wpcli(
+                'user',
+                'add-role',
+                [
+                  $user_id,
+                  escapeshellcmd($role)
+                ]
+            );
+        }
 
         return $this->get($user_id);
     }
