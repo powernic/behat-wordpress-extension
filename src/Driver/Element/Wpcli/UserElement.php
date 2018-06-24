@@ -85,6 +85,11 @@ class UserElement extends BaseElement
             throw new UnexpectedValueException(sprintf('[W504] Could not find user with ID %d', $id));
         }
 
+        // Convert CSVs to arrays for consistency with WP-PHP driver.
+        if (isset($user->roles) && ! is_array($user->roles)) {
+            $user->roles = array_map('trim', explode(',', $user->roles));
+        }
+
         return $user;
     }
 
