@@ -187,18 +187,12 @@ trait UserAwareContextTrait
      */
     private function checkUserHasRole($user, string $role): bool
     {
-        /*
-         * $user->roles can either be a string with 1 role in it or an array of roles.
-         * casting to an array means it will always be an array.
-         */
-        $roles = (array) $user->roles;
-
-        if (! in_array($role, $roles, true)) { // if its an array check the role is in that array
+        if (! in_array($role, $user->roles, true)) { // if its an array check the role is in that array
             $message = sprintf(
                 '[W804] User with login: %s exists, but role %s is not in the list of applied roles: %s',
                 $user->user_login,
                 $role,
-                $roles
+                $user->roles
             );
             throw new \UnexpectedValueException($message);
         }

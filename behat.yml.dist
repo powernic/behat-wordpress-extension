@@ -32,7 +32,8 @@ default:
       path: /path/to/wordpress
       users:
         -
-          role: administrator
+          roles:
+            - administrator
           username: admin
           password: admin
       database:

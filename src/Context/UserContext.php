@@ -31,11 +31,8 @@ class UserContext extends RawWordpressContext
         foreach ($users->getHash() as $user) {
             $this->createUser($user['user_login'], $user['user_email'], $user);
 
-            // Store new users by username, not by role (unlike what the docs say).
-            $user_id = strtolower($user['user_login']);
-            $user_id = preg_replace('/[^a-z0-9_\-]/', '', $user_id);
-
-            $params['users'][$user_id] = array(
+            $params['users'][] = array(
+                'roles'    => $this->getUserDataFromUsername('roles', $user['user_login']),
                 'username' => $user['user_login'],
                 'password' => $user['user_pass'],
             );
