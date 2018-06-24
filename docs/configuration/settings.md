@@ -22,7 +22,7 @@ PaulGibbs\WordpressBehatExtension:
       username: admin
       password: admin
     -
-      role: contributor
+      role: contributor,superhero
       username: clark
       password: kent
 
