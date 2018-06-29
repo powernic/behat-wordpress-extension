@@ -77,7 +77,7 @@ class UserContext extends RawWordpressContext
         }
 
         if ($found_user === null) {
-            throw new RuntimeException("[W801] User not found for name \"{$role}\"");
+            throw new RuntimeException("[W801] User not found for name \"{$username}\"");
         }
 
         $this->visitPath(sprintf(
@@ -199,14 +199,14 @@ class UserContext extends RawWordpressContext
      *
      * @Then /^(?:I|they) should not be able to log in as (.+)$/
      *
-     * @param string $user
+     * @param string $username
      *
      * @throws ExpectationException
      */
-    public function iShouldNotBeAbleToLogInAsUser(string $user)
+    public function iShouldNotBeAbleToLogInAsUser(string $username)
     {
         try {
-            $this->iAmLoggedInAsUser($user);
+            $this->iAmLoggedInAsUser($username);
         } catch (ExpectationException $e) {
             // Expectation fulfilled.
             return;
@@ -218,7 +218,7 @@ class UserContext extends RawWordpressContext
         throw new ExpectationException(
             sprintf(
                 '[W802] The user "%s" was logged-in succesfully. This should not have happened.',
-                $role
+                $username
             ),
             $this->getSession()->getDriver()
         );
