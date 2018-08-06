@@ -56,7 +56,7 @@ markdown_extensions:
   - pymdownx.tasklist(custom_checkbox=true)
 
 # Documentation
-pages:
+nav:
   - Introduction: index.md
   - Getting Started:
     - Installation: getting-started/installation.md
