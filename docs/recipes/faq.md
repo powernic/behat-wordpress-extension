@@ -19,7 +19,7 @@ If you are new to the project or Behat, we recommend that you first [read throug
 * WordHat supports MacOS, most flavours of Linux, and Windows. We use [Travis-CI](https://travis-ci.org/paulgibbs/behat-wordpress-extension) and [Appveyor](https://ci.appveyor.com/project/PaulGibbs/behat-wordpress-extension) to test on Ubuntu and Windows, respectively, and require modern versions of PHP.
 
 ## Virtual machines (Vagrant)
-* If you are using a Vagrant-powered virtual machine to run Behat via the [WP-CLI driver](features/overview/index.html#wp-cli), you will need to `vagrant ssh` into the box once. This will set up password-less authentication; otherwise, WordHat will prompt you for the SSH password frequently.
+* If you are using a Vagrant-powered virtual machine to run Behat via the [WP-CLI driver](../features/overview.html#wp-cli), you will need to `vagrant ssh` into the box once. This will set up password-less authentication; otherwise, WordHat will prompt you for the SSH password frequently.
 
 ## WordPress
 * If your WordPress is installed in a subdirectory, you need to set the `site_url` option to the value of the "WordPress address (URL)" option (found in WordPress > Settings > General). For more information, [consult the WordHat documentation](/configuration/settings.md).
