@@ -6,7 +6,7 @@ description: WordHat project news and changelog
 
 ## [3.0.0] - 2018-08-08
 ### Changed
-- Contexts, User: change "I am logged in as ..." step definition to disambiguate between role names and user names.
+- Contexts, User: change "I am logged in as ..." step definition to disambiguate between role names and user names. e.g. "Given I am logged in as USER" vs "Given I am logged in as an ROLE".
 - Change `users` settings' format in `behat.yml`. [Refer to website](/configuration/settings.md) and/or `behat.yml.dist`.
 - Github: update issue templates.
 - Website: complete documentation of PHP exception error codes, and misc. tidy-up.
