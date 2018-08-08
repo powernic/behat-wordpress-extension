@@ -18,13 +18,10 @@ PaulGibbs\WordpressBehatExtension:
   # User settings.
   users:
     -
-      role: administrator
+      roles:
+        - administrator
       username: admin
       password: admin
-    -
-      role: contributor,superhero
-      username: clark
-      password: kent
 
   # WordPress settings.
   site_url: ~
