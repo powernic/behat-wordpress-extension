@@ -4,6 +4,17 @@ description: WordHat project news and changelog
 ## Master branch
 - tbc
 
+## [3.0.0] - 2018-08-08
+### Changed
+- Contexts, User: change "I am logged in as ..." step definition to disambiguate between role names and user names.
+- Change `users` settings' format in `behat.yml`. [Refer to website](/configuration/settings.md) and/or `behat.yml.dist`.
+- Github: update issue templates.
+- Website: complete documentation of PHP exception error codes, and misc. tidy-up.
+- Website: update mkDocs configuration for its latest version.
+
+## Removed
+- Remove deprecated `SnippetAcceptingContext` context from Behat context generator. Use `vendor/bin/behat --snippets-for=MyContext --append-snippets --dry-run` instead.
+
 ## [2.0.0] - 2018-06-03
 ### Added
 - Website: add "Open Source" page, and misc. SEO improvements.
@@ -183,6 +194,8 @@ description: WordHat project news and changelog
 ### Added
 - First working version of basic architecture.
 
+[3.0.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v2.0.0...v3.0.0
+[2.0.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.0...v1.0.0
