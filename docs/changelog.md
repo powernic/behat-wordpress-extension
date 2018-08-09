@@ -4,7 +4,7 @@ description: WordHat project news and changelog
 ## Master branch
 - tbc
 
-## [3.0.0] - 2018-08-08
+## [3.0.0] - 2018-08-09
 ### Changed
 - Contexts, User: change "I am logged in as ..." step definition to disambiguate between role names and user names. e.g. "Given I am logged in as USER" vs "Given I am logged in as an ROLE".
 - Change `users` settings' format in `behat.yml`. [Refer to website](/configuration/settings.md) and/or `behat.yml.dist`.
