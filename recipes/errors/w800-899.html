@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.2">
+      <meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.3">
     
     
       
@@ -72,7 +72,7 @@
 
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../../../../stylesheets/style.css">
+      <link rel="stylesheet" href="../../stylesheets/style.css">
     
     
   </head>
@@ -975,13 +975,15 @@
 <p>These errors originate from WordHat&rsquo;s Behat contexts (and associated plumbing).</p>
 <h2 id="w801">W801<a class="headerlink" href="#w801" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>User details for role () not found.</p>
+<p>User not found for role &ldquo;(name)&rdquo;.
+User not found for name &ldquo;(name)&rdquo;.</p>
 </blockquote>
 <p>WordHat cannot find the specified user account.
 Does it exist? Check your <code>behat.yml</code> for typos.</p>
 <h2 id="w802">W802<a class="headerlink" href="#w802" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>The user () was logged-in succesfully. This should not have happened.</p>
+<p>The user &ldquo;(name)&rdquo; was logged-in succesfully. This should not have happened.
+A user with role &ldquo;(name)&rdquo; was logged-in succesfully. This should not have happened.</p>
 </blockquote>
 <p>This exception asserts that the user could not logged in; but, they were able to.
 Have you used the correct step definition?</p>
@@ -994,14 +996,14 @@ Assuming the user account exists, this is typically very hard to debug.
 Check your <code>behat.yml</code> for typos. Consider running the scenario in a browser so you can see where the problem occurs.</p>
 <h2 id="w804">W804<a class="headerlink" href="#w804" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>User with login: () exists but password is incorrect.
-User with login: () exists, but (parameter) is not (expected value) which was specified.
-User with login: () exists, but role (name) is not in the list of applied roles: ().</p>
+<p>User with login: (name) exists but password is incorrect.
+User with login: (name) exists, but (parameter) is not (expected value) which was specified.
+User with login: (name) exists, but role (name) is not in the list of applied roles: (value).</p>
 </blockquote>
 <p>Check your <code>behat.yml</code> for typos.</p>
 <h2 id="w806">W806<a class="headerlink" href="#w806" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>The text &ldquo;()&rdquo; was not found in the toolbar.</p>
+<p>The text &ldquo;(value)&rdquo; was not found in the toolbar.</p>
 </blockquote>
 <p>Has the user authenticated? Can the user see the WordPress Toolbar?</p>
 <h2 id="w807">W807<a class="headerlink" href="#w807" title="Permanent link">&para;</a></h2>
@@ -1022,7 +1024,7 @@ Check your <code>behat.yml</code> for typos.</p>
 <p>Have you used the correct step definition?</p>
 <h2 id="w810">W810<a class="headerlink" href="#w810" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>&ldquo;Given I am viewing a post:&rdquo; step must only contain one post&rsquo;</p>
+<p>&ldquo;Given I am viewing a post:&rdquo; step must only contain one post.</p>
 </blockquote>
 <p>This step definition &ndash; currently &ndash; only accepts one post.</p>
 <h2 id="w811">W811<a class="headerlink" href="#w811" title="Permanent link">&para;</a></h2>

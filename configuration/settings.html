@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.2">
+      <meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.3">
     
     
       
@@ -72,7 +72,7 @@
 
     <link rel="stylesheet" href="../assets/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../../stylesheets/style.css">
+      <link rel="stylesheet" href="../stylesheets/style.css">
     
     
   </head>
@@ -868,21 +868,11 @@
 
   <span class="c1"># User settings.</span>
   <span class="l l-Scalar l-Scalar-Plain">users</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">admin</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span>
+      <span class="l l-Scalar l-Scalar-Plain">roles</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">administrator</span>
       <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">admin</span>
       <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">admin</span>
-    <span class="l l-Scalar l-Scalar-Plain">editor</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">editor</span>
-      <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">editor</span>
-    <span class="l l-Scalar l-Scalar-Plain">author</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">author</span>
-      <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">author</span>
-    <span class="l l-Scalar l-Scalar-Plain">contributor</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">contributor</span>
-      <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">contributor</span>
-    <span class="l l-Scalar l-Scalar-Plain">subscriber</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">subscriber</span>
-      <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">subscriber</span>
 
   <span class="c1"># WordPress settings.</span>
   <span class="l l-Scalar l-Scalar-Plain">site_url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~</span>
@@ -920,7 +910,7 @@
 <tr>
 <td align="left"><code>users.*</code></td>
 <td align="left"><em>see example</em></td>
-<td align="left"><em>Optional</em>.<br>Keys must match names of WordPress roles.</td>
+<td align="left"><em>Optional</em>.<br><code>roles</code> property can accept multiple values.</td>
 </tr>
 <tr>
 <td align="left"><code>site_url</code></td>
