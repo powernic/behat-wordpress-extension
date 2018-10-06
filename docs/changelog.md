@@ -2,7 +2,8 @@ description: WordHat project news and changelog
 # News
 
 ## Master branch
-- tbc
+### Changed
+- Deprecate `validateCredentials` in `UserElement` classes for all drivers; add no-op. Methods will be removed in 4.0.0.
 
 ## [3.0.0] - 2018-08-09
 ### Changed
