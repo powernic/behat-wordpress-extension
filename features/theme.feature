@@ -7,7 +7,7 @@ Feature: Managing themes
     Given I am logged in as an administrator
 
   @db
-  Scenario: Activate a plugin
+  Scenario: Activate a theme
     When I switch the theme to "twentysixteen"
     And I am on the dashboard
     Then I should see "Twenty Sixteen" in the "#wp-version a" element
