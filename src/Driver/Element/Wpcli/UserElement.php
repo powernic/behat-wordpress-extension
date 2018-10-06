@@ -3,7 +3,6 @@ declare(strict_types=1);
 namespace PaulGibbs\WordpressBehatExtension\Driver\Element\Wpcli;
 
 use PaulGibbs\WordpressBehatExtension\Driver\Element\BaseElement;
-use PaulGibbs\WordpressBehatExtension\Exception\UnsupportedDriverActionException;
 use function PaulGibbs\WordpressBehatExtension\Util\buildCLIArgs;
 use UnexpectedValueException;
 
@@ -120,14 +119,17 @@ class UserElement extends BaseElement
     /**
      * Checks that the username and password are correct.
      *
+     * @deprecated 3.1.0 Redundant. Now just a no-op.
+     * @todo Remove in 4.0.0.
+     *
      * @param string $username
      * @param string $password
      *
-     * @return boolean True if the username and password are correct.
+     * @return true
      */
     public function validateCredentials(string $username, string $password)
     {
-        throw new UnsupportedDriverActionException("[W505] No known way to check $username has password $password");
+        return true;
     }
 
     /**

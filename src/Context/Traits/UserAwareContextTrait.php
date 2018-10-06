@@ -158,13 +158,7 @@ trait UserAwareContextTrait
          */
         foreach ($args as $parameter => $value) {
             if ($parameter === 'password') {
-                try {
-                    if (! $this->getDriver()->user->validateCredentials($args['user_login'], $value)) {
-                        throw new UnexpectedValueException('[W804] User with login: ' . $user->user_login . ' exists but password is incorrect');
-                    }
-                } catch (UnsupportedDriverActionException $exception) {
-                    // WPCLI can't do this yet.
-                }
+                continue;
             }
 
             if ($this->isValidUserParameter($parameter) && $user->$parameter !== $args[$parameter]) {
@@ -216,7 +210,6 @@ trait UserAwareContextTrait
             'user_email',
             'user_registered',
             'roles',
-            // 'user_pass', - exclude the password for the moment - need special logic for it
             'user_nicename',
             'user_url',
             'user_activation_key',

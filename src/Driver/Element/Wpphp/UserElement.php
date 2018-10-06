@@ -80,15 +80,17 @@ class UserElement extends BaseElement
     /**
      * Checks that the username and password are correct.
      *
+     * @deprecated 3.1.0 Redundant. Now just a no-op.
+     * @todo Remove in 4.0.0.
+     *
      * @param string $username
      * @param string $password
      *
-     * @return boolean True if the username and password are correct.
+     * @return true
      */
     public function validateCredentials(string $username, string $password)
     {
-        $check = \wp_authenticate_username_password(null, $username, $password);
-        return !\is_wp_error($check);
+        return true;
     }
 
     /**
