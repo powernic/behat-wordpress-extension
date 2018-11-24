@@ -115,12 +115,19 @@ class Toolbar extends Element
                 continue;
             }
 
+            $id = $first_level_item->getAttribute('id');
+
             try {
-                // "Focus" (add hover class) on the toolbar link so the submenu appears.
-                $id = $first_level_item->getAttribute('id');
-                $this->getSession()->evaluateScript(
-                    'jQuery("#' . $id . '").addClass("hover");'
+                $element_exists = $this->getSession()->evaluateScript(
+                    'return document.getElementById("' . $id . '");'
                 );
+
+                if ( $element_exists !== null ) {
+                    // "Focus" (add hover class) on the toolbar link so the submenu appears.
+                    $this->getSession()->executeScript(
+                        'document.getElementById("' . $id . '").classList.add("hover");'
+                    );
+                }
             } catch (UnsupportedDriverActionException $e) {
                 // This will fail for GoutteDriver but neither is it necessary.
             }
@@ -184,13 +191,20 @@ class Toolbar extends Element
          * See https://github.com/paulgibbs/behat-wordpress-extension/issues/65
          */
         try {
-            $this->getSession()->evaluateScript(
-                'jQuery("#wp-admin-bar-my-account").addClass("hover");'
+            $element_exists = $this->getSession()->evaluateScript(
+                'return document.getElementById("wp-admin-bar-my-account");'
             );
+
+            if ( $element_exists !== null ) {
+                $this->getSession()->executeScript(
+                    'document.getElementById("wp-admin-bar-my-account").classList.add("hover");'
+                );
+
+                $this->find('css', '#wp-admin-bar-logout a')->click();
+            }
         } catch (UnsupportedDriverActionException $e) {
             // This will fail for GoutteDriver but neither is it necessary.
+            $this->find('css', '#wp-admin-bar-logout a')->click();
         }
-
-        $this->find('css', '#wp-admin-bar-logout a')->click();
     }
 }
