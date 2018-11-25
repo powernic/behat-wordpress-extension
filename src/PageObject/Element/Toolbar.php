@@ -122,7 +122,7 @@ class Toolbar extends Element
                     'return document.getElementById("' . $id . '");'
                 );
 
-                if ( $element_exists !== null ) {
+                if ($element_exists !== null) {
                     // "Focus" (add hover class) on the toolbar link so the submenu appears.
                     $this->getSession()->executeScript(
                         'document.getElementById("' . $id . '").classList.add("hover");'
@@ -195,7 +195,7 @@ class Toolbar extends Element
                 'return document.getElementById("wp-admin-bar-my-account");'
             );
 
-            if ( $element_exists !== null ) {
+            if ($element_exists !== null) {
                 $this->getSession()->executeScript(
                     'document.getElementById("wp-admin-bar-my-account").classList.add("hover");'
                 );
