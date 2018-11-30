@@ -52,12 +52,12 @@ class ContentElement extends BaseElement
             $query = new WP_Query();
             $query = $query->query(array(
                 "{$args['by']}"          => $id,
+                'ignore_sticky_posts'    => true,
                 'no_found_rows'          => true,
                 'posts_per_page'         => 1,
                 'suppress_filters'       => false,
                 'update_post_meta_cache' => false,
                 'update_post_term_cache' => false,
-                ''
             ));
 
             if ($query) {

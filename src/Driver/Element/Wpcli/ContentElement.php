@@ -107,7 +107,7 @@ class ContentElement extends BaseElement
 
         // Support fetching via arbitrary field.
         if (! is_numeric($id)) {
-            $wpcli_args = ['--fields=ID,url', "--{$args['by']}=" . escapeshellarg($id), '--post_type=any', '--format=json'];
+            $wpcli_args = ['--fields=ID,url', "--{$args['by']}=" . escapeshellarg($id), '--post_type=any', '--format=json', '--ignore_sticky_posts=true'];
             $result     = json_decode($this->drivers->getDriver()->wpcli('post', 'list', $wpcli_args)['stdout']);
 
             if (empty($result)) {
