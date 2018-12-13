@@ -1,9 +1,15 @@
 description: WordHat project news and changelog
 # News
 
-## Master branch
+## [3.1.0] - 2018-12-??
 ### Changed
-- Deprecate `validateCredentials` in `UserElement` classes for all drivers; add no-op. Methods will be removed in 4.0.0.
+- Drivers: Deprecate `validateCredentials` in `UserElement` classes; add no-op. Methods will be removed in 4.0.0 (#220).
+- Remove lazy assumption that a tested site has jQuery (#213).
+
+### Fixed
+- Website: improve kerning in project logo.
+- Features: fix typo in `feature/theme.feature`.
+- Drivers: fix finding content by `post_title` when sticky posts exist (#218).
 
 ## [3.0.0] - 2018-08-09
 ### Changed
@@ -115,7 +121,7 @@ description: WordHat project news and changelog
 - Add optional `redirect_to` param to `logIn()`.
 
 ### Changed
-- Driver interface re-organisation. See [#21](https://github.com/paulgibbs/behat-wordpress-extension/issues/21).
+- Driver interface re-organisation. See #21.
 
 ### Fixed
 - If a browser window is not open when the `BeforeStep` event is run, then our call to Selenium2Driver::executeScript() will throw an exception.
@@ -195,6 +201,7 @@ description: WordHat project news and changelog
 ### Added
 - First working version of basic architecture.
 
+[3.1.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v1.1.0...v1.2.0
