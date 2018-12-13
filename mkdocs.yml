@@ -42,18 +42,22 @@ google_analytics:
   - 'auto'
 
 markdown_extensions:
-  - markdown.extensions.admonition
-  - markdown.extensions.footnotes
-  - markdown.extensions.meta
-  - markdown.extensions.smarty
-  - markdown.extensions.toc(permalink=true)
-  - markdown.extensions.codehilite(guess_lang=false)
-  - pymdownx.betterem(smart_enable=all)
+  - admonition
+  - footnotes
+  - meta
+  - smarty
+  - toc:
+      permalink: true
+  - codehilite:
+      guess_lang: false
+  - pymdownx.betterem:
+      smart_enable: all
   - pymdownx.magiclink
   - pymdownx.inlinehilite
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 # Documentation
 nav:
