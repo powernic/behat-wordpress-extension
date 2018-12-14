@@ -30,6 +30,8 @@ services:
        - seccomp:unconfined
 
    selenium:
-      image: selenium/standalone-chrome-debug:3.11.0
-      ports:
+     image: selenium/standalone-chrome-debug:3.11.0
+     ports:
       - "4444:4444"
+      - "5900"
+     shm_size: 2G
