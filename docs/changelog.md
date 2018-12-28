@@ -3,8 +3,9 @@ description: WordHat project news and changelog
 
 WordHat does not yet support WordPress' new content editor (Gutenberg). The step definitions for creating content assume, and only work with, the classic WordPress editor.
 
-## [3.1.0] - 2018-12-??
+## [3.1.0] - 2018-12-28
 ### Changed
+- Contexts, User: the "given there are users..." step definition now auto-sets the new user's password (#228).
 - Drivers: Deprecate `validateCredentials` in `UserElement` classes; add no-op. Methods will be removed in 4.0.0 (#220).
 - Remove lazy assumption that a tested site has jQuery (#213).
 
