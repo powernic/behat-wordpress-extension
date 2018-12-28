@@ -137,4 +137,25 @@ class RawWordpressContext extends RawMinkContext implements WordpressAwareInterf
     {
         $this->getSession()->reset();
     }
+
+    /**
+     * Get a random string.
+     *
+     * @see https://developer.wordpress.org/reference/functions/wp_generate_password/ Implementation copied from WordPress.
+     *
+     * @param int $length Optional. Length of string to return. Default is 64.
+     *
+     * @return string
+     */
+    public function getRandomString(int $length = 64): string
+    {
+        $chars  = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
+        $random = '';
+
+        for ($i = 0; $i < $length; $i++) {
+            $random .= substr($chars, random_int(0, strlen($chars) - 1), 1);
+        }
+
+        return $random;
+    }
 }
