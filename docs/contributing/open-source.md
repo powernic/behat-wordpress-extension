@@ -12,10 +12,9 @@ description: Information about making contributions to WordHat
  * [PSR-2: Coding Style Guide](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md).
  * [PSR-4: Autoloading Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md).
  * Delimit variable and property names by underscore.
- * Only typehint callable, classes, and objects.
- * Prefer short syntax `[ ]` for single-line arrays, and the traditional syntax for multi-line arrays.
+ * Prefer short array syntax (`[ ]`).
  * For code files, keep maximumum line lengths to around ~120 characters.
- * The website documentation is to be written in British English (en-GB).
+ * The website documentation is to be written in British English ("en-GB").
 
 You can do some things to increase the chance that a change request or pull request is accepted the first time:
 

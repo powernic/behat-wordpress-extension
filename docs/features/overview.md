@@ -31,9 +31,6 @@ The WP-PHP driver loads WordPress by bootstrapping it directly. This approach wa
 
 ## Contexts
 
-!!! warning "Under development"
-    Step definitions are not fully implemented -- yet. More are added with each release of WordHat.
-
 ### Content
 
 The `ContentContext` context provides a range of step definitions for managing post types, taxonomy terms, and comments.
