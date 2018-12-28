@@ -17,8 +17,8 @@ class UserContext extends RawWordpressContext
      * Add specified user accounts.
      *
      * Example: Given there are users:
-     *     | user_login | user_pass | user_email        | role          |
-     *     | admin      | admin     | admin@example.com | administrator |
+     *     | user_login | user_email        | role          |
+     *     | admin      | admin@example.com | administrator |
      *
      * @Given /^(?:there are|there is a) users?:/
      *
@@ -29,6 +29,10 @@ class UserContext extends RawWordpressContext
         $params = $this->getWordpressParameters();
 
         foreach ($users->getHash() as $user) {
+            if (! isset($user['user_pass'])) {
+                $user['user_pass'] = $this->getRandomString();
+            }
+
             $this->createUser($user['user_login'], $user['user_email'], $user);
 
             $params['users'][] = array(
