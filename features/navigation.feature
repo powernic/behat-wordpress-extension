@@ -3,7 +3,7 @@ Feature: Navigation around types of WordPress front-end screen.
   As a WordHat maintainer
   I want to test navigating around a website
 
-  @db @javascript
+  @db
   Scenario: Access author archive
     Given there are users:
       | user_login | user_pass | user_email       | role   |

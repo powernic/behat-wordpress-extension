@@ -4,7 +4,6 @@ Feature: Managing users
   As a WordHat maintainer
   I want to test managing users
 
-  @javascript
   Scenario: I can specify a user which already exists and the test should not fail
     Given there are users:
        | user_login | user_pass | user_email       | role   |
