@@ -214,6 +214,28 @@ trait UserAwareContextTrait
     }
 
     /**
+     * Verify a username is valid without returning any additional user information.
+     *
+     * @param string $username
+     *
+     * @throws \RuntimeException
+     *
+     * @return bool
+     */
+    public function isUserNameValid(string $username)
+    {
+        $users = $this->getWordpressParameter('users');
+
+        foreach ($users as $user) {
+            if ($username === $user['username']) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Checks to see if the passed in parameter applies to a user or not.
      *
      * @param string $user_parameter the parameter to be checked.
