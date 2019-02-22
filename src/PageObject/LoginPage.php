@@ -35,7 +35,7 @@ class LoginPage extends Page
         $url = $session->getCurrentUrl();
 
         // If the login path isn't in the current URL.
-        if (false === strrpos($url, $this->path) ) {
+        if (false === strrpos($url, $this->path)) {
             // We aren't on the login screen.
             throw new ExpectationException(
                 sprintf(
@@ -56,7 +56,7 @@ class LoginPage extends Page
         $login_form = $page->find('css', $login_form_selector);
 
         // If the login form was not found.
-        if ( null === $login_form ) {
+        if (null === $login_form) {
             // We aren't on the login screen.
             throw new ExpectationException(
                 sprintf(
@@ -67,7 +67,6 @@ class LoginPage extends Page
                 $this->getDriver()
             );
         }
-        
     }
     
     /**
@@ -83,7 +82,7 @@ class LoginPage extends Page
         $this->verifyLoginPage();
 
         // Unless username is empty, which will reset the field.
-        if( ! empty( $username ) ) {
+        if (! empty($username)) {
             // Verify the username is valid.
             $found_user = $this->getUserByName($username);
         }
@@ -122,7 +121,7 @@ class LoginPage extends Page
         $username_actual = $user_login_field->getValue();
 
         // Verify the username was filled in correctly.
-        if( $username_actual !== $username ) {
+        if ($username_actual !== $username) {
             throw new ExpectationException(
                 sprintf(
                     'Expected the username field to be "%1$s", found "%2$s".',
@@ -132,7 +131,6 @@ class LoginPage extends Page
                 $this->getDriver()
             );
         }
-
     }
 
     /**
@@ -181,7 +179,7 @@ class LoginPage extends Page
         $password_actual = $user_pass_field->getValue();
 
         // Verify the password was filled in correctly.
-        if( $password_actual !== $password ) {
+        if ($password_actual !== $password) {
             throw new ExpectationException(
                 sprintf(
                     'Expected the password field to be "%1$s", found "%2$s".',
@@ -191,7 +189,6 @@ class LoginPage extends Page
                 $this->getDriver()
             );
         }
-
     }
 
     /**
@@ -203,14 +200,13 @@ class LoginPage extends Page
     {
 
         // Add the redirect to parameter the login path.
-        $login_path = $this->path . '?redirect_to=' . urlencode( $redirect_to );
+        $login_path = $this->path . '?redirect_to=' . urlencode($redirect_to);
 
         // Visit the login path.
-        $this->visitPath( $login_path );
+        $this->visitPath($login_path);
 
         // Verify we are on the login page.
         $this->verifyLoginPage();
-
     }
 
     /**
@@ -236,7 +232,6 @@ class LoginPage extends Page
 
         // Click the submit button.
         $submit_button->click();
-
     }
 
      /**
@@ -244,17 +239,17 @@ class LoginPage extends Page
      *
      * @return Session Mink session.
      */
-    protected function verifySession($session_name=null) {
+    protected function verifySession($session_name = null)
+    {
         // Get the session, by name if one is given.
         $session = ( null === $session_name ) ? $this->getSession() : $this->getSession($session_name);
         
         // Start the session if needed.
-        if ( ! $session->isStarted() ) {
+        if (! $session->isStarted()) {
             $session->start();
         }
 
         // Return the session.
         return $session;
     }
-
 }

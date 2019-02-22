@@ -81,7 +81,7 @@ trait UserAwareContextTrait
         }
 
         // Dashboard URLs can only be accessed if logged in.
-        if ( false !== stripos( $session->getCurrentUrl(), 'wp-admin' ) ) {
+        if (false !== stripos($session->getCurrentUrl(), 'wp-admin')) {
             return true;
         }
 
@@ -93,7 +93,7 @@ trait UserAwareContextTrait
             $body_element = $page->find('css', 'body');
 
             // If the page doesn't have a body element the user is not logged in.
-            if( null === $body_element ) {
+            if (null === $body_element) {
                 return false;
             }
 
