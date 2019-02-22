@@ -230,8 +230,12 @@ class LoginPage extends Page
         // Find the submit button.
         $submit_button = $page->find('css', '#wp-submit');
 
-        // Focus the submit button.
-        $submit_button->focus();
+        // Try to focus the submit button.
+        try {
+            $submit_button->focus();
+        } catch (UnsupportedDriverActionException $e) {
+            // This will fail for GoutteDriver but neither is it necessary.
+        }
 
         // Click the submit button.
         $submit_button->click();
