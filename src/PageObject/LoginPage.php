@@ -239,10 +239,10 @@ class LoginPage extends Page
      *
      * @return Session Mink session.
      */
-    protected function verifySession($session_name = null)
+    protected function verifySession()
     {
-        // Get the session, by name if one is given.
-        $session = ( null === $session_name ) ? $this->getSession() : $this->getSession($session_name);
+        // Get the session.
+        $session = $this->getSession();
         
         // Start the session if needed.
         if (! $session->isStarted()) {
