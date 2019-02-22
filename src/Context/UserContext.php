@@ -14,6 +14,34 @@ class UserContext extends RawWordpressContext
     use Traits\UserAwareContextTrait, Traits\CacheAwareContextTrait;
 
     /**
+     * Verify a username is valid and get the matching user information.
+     *
+     * @param string $username
+     *
+     * @throws \RuntimeException
+     *
+     * @return array The WordPress user details matching the given username.
+     */
+    protected function getUserByName(string $username)
+    {
+        $found_user = null;
+        $users      = $this->getWordpressParameter('users');
+
+        foreach ($users as $user) {
+            if ($username === $user['username']) {
+                $found_user = $user;
+                break;
+            }
+        }
+
+        if ($found_user === null) {
+            throw new RuntimeException("[W801] User not found for name \"{$username}\"");
+        }
+
+        return $found_user;
+    }
+
+    /**
      * Add specified user accounts.
      *
      * Example: Given there are users:
@@ -70,19 +98,7 @@ class UserContext extends RawWordpressContext
      */
     public function iAmViewingAuthorArchive(string $username)
     {
-        $found_user = null;
-        $users      = $this->getWordpressParameter('users');
-
-        foreach ($users as $user) {
-            if ($username === $user['username']) {
-                $found_user = $user;
-                break;
-            }
-        }
-
-        if ($found_user === null) {
-            throw new RuntimeException("[W801] User not found for name \"{$username}\"");
-        }
+        $found_user = $this->getUserByName($username);
 
         $this->visitPath(sprintf(
             $this->getWordpressParameters()['permalinks']['author_archive'],
@@ -147,19 +163,7 @@ class UserContext extends RawWordpressContext
      */
     public function iAmLoggedInAsUser(string $username)
     {
-        $found_user = null;
-        $users      = $this->getWordpressParameter('users');
-
-        foreach ($users as $user) {
-            if ($username === $user['username']) {
-                $found_user = $user;
-                break;
-            }
-        }
-
-        if ($found_user === null) {
-            throw new RuntimeException("[W801] User not found for name \"{$username}\"");
-        }
+        $found_user = $this->getUserByName($username);
 
         $this->logIn($found_user['username'], $found_user['password']);
     }
