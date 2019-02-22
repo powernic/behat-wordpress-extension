@@ -235,9 +235,9 @@ class LoginPage extends Page
     }
 
      /**
-     * Verify a properly started mink session
+     * Verify and return a properly started Mink session
      *
-     * @return Session Mink session.
+     * @return \Behat\Mink\Session Mink session.
      */
     protected function verifySession()
     {
