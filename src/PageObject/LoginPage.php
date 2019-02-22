@@ -193,14 +193,20 @@ class LoginPage extends Page
     public function goToLoginScreen(string $redirect_to)
     {
 
-        // Add the redirect to parameter the login path.
+        // Get the site URL
+        $site_url = rtrim($this->getParameter('site_url'), '/') . '/';
+
+        // Construct the login path
         $login_path = $this->path . '?redirect_to=' . urlencode($redirect_to);
+
+        // Construct the login URL
+        $login_url = $site_url . $login_path;
 
         // Start a session.
         $session = $this->verifySession();
 
         // Visit the login path.
-        $session->visit($this->locatePath($login_path));
+        $session->visit($login_url);
 
         // Verify we are on the login page.
         $this->verifyLoginPage();
