@@ -194,13 +194,13 @@ class LoginPage extends Page
     {
 
         // Add the redirect to parameter the login path.
-        $login_path = '/' . $this->path . '?redirect_to=' . urlencode($redirect_to);
+        $login_path = $this->path . '?redirect_to=' . urlencode($redirect_to);
 
         // Start a session.
         $session = $this->verifySession();
 
         // Visit the login path.
-        $session->visit($login_path);
+        $session->visit($this->locatePath($login_path));
 
         // Verify we are on the login page.
         $this->verifyLoginPage();
