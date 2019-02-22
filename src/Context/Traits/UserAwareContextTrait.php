@@ -48,7 +48,7 @@ trait UserAwareContextTrait
             $this->logOut();
         }
 
-        $this->login_page->goToLoginScreen($redirect_to);
+        $this->visitPath('wp-login.php?redirect_to=' . urlencode($this->locatePath($redirect_to)));
         $page = $this->getSession()->getPage();
 
         $this->login_page->setUserName($username);

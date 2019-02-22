@@ -186,33 +186,6 @@ class LoginPage extends Page
     }
 
     /**
-     * Go to the WordPress login screen
-     *
-     * @param string $redirect_to optional URL for the redirect_to parameter
-     */
-    public function goToLoginScreen(string $redirect_to)
-    {
-
-        // Get the site URL
-        $site_url = rtrim($this->getParameter('site_url'), '/') . '/';
-
-        // Construct the login path
-        $login_path = $this->path . '?redirect_to=' . urlencode($redirect_to);
-
-        // Construct the login URL
-        $login_url = $site_url . $login_path;
-
-        // Start a session.
-        $session = $this->verifySession();
-
-        // Visit the login path.
-        $session->visit($login_url);
-
-        // Verify we are on the login page.
-        $this->verifyLoginPage();
-    }
-
-    /**
      * Submit the WordPress login form
      */
     public function submitLoginForm()
