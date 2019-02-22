@@ -10,7 +10,7 @@ use Behat\Mink\Exception\ExpectationException;
 /**
  * Page object representing a the WordPress login page.
  *
- * This class houses methods for interacting with the login and login form
+ * This class houses methods for interacting with the login page and login form
  */
 class LoginPage extends Page
 {
@@ -68,28 +68,6 @@ class LoginPage extends Page
             );
         }
     }
-
-    /**
-     * Verify a username is valid without returning any additional user information.
-     *
-     * @param string $username
-     *
-     * @throws \RuntimeException
-     *
-     * @return bool
-     */
-    protected function isUserNameValid(string $username)
-    {
-        $users = $this->getWordpressParameter('users');
-
-        foreach ($users as $user) {
-            if ($username === $user['username']) {
-                return true;
-            }
-        }
-
-        return false;
-    }
     
     /**
      * Fills the user_login field of the login form with a given username.
@@ -102,12 +80,6 @@ class LoginPage extends Page
     {
         // Verify we are on the login page.
         $this->verifyLoginPage();
-
-        // Unless username is empty, which will reset the field.
-        if (! empty($username)) {
-            // Verify the username is valid.
-            $this->isUserNameValid($username);
-        }
 
         // Get the session.
         $session = $this->verifySession();
