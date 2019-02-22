@@ -5,7 +5,7 @@ namespace PaulGibbs\WordpressBehatExtension\Context\Traits;
 use Behat\Mink\Exception\DriverException;
 use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
-use PageObject\LoginPage;
+use PaulGibbs\WordpressBehatExtension\PageObject\LoginPage;
 use UnexpectedValueException;
 
 /**
