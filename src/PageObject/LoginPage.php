@@ -14,7 +14,7 @@ use Behat\Mink\Exception\ExpectationException;
  */
 class LoginPage extends Page
 {
-    
+
     /**
      * @var string $path
      */
@@ -84,7 +84,7 @@ class LoginPage extends Page
         // Unless username is empty, which will reset the field.
         if (! empty($username)) {
             // Verify the username is valid.
-            $found_user = $this->getUserByName($username);
+            $this->isUserNameValid($username);
         }
 
         // Get the session.
