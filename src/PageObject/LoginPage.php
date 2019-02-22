@@ -68,6 +68,28 @@ class LoginPage extends Page
             );
         }
     }
+
+    /**
+     * Verify a username is valid without returning any additional user information.
+     *
+     * @param string $username
+     *
+     * @throws \RuntimeException
+     *
+     * @return bool
+     */
+    protected function isUserNameValid(string $username)
+    {
+        $users = $this->getWordpressParameter('users');
+
+        foreach ($users as $user) {
+            if ($username === $user['username']) {
+                return true;
+            }
+        }
+
+        return false;
+    }
     
     /**
      * Fills the user_login field of the login form with a given username.
