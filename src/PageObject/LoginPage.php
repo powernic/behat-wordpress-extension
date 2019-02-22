@@ -140,7 +140,7 @@ class LoginPage extends Page
      *
      * @throws \Behat\Mink\Exception\ExpectationException
      */
-    public function setUserPassword(string $username)
+    public function setUserPassword(string $password)
     {
         // Verify we are on the login page.
         $this->verifyLoginPage();
