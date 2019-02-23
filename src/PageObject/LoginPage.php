@@ -6,6 +6,7 @@ use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Page;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
 use Behat\Mink\Exception\ExpectationException;
+use PaulGibbs\WordpressBehatExtension\Context\RawWordpressContext;
 
 /**
  * Page object representing a the WordPress login page.
@@ -232,7 +233,7 @@ class LoginPage extends Page
         // If we aren't on a valid page
         if ('about:blank' === $session->getCurrentUrl()) {
             // Go to the home page
-            $session->visit($this->getMinkParameter('base_url'));
+            $session->visit('/');
         }
 
         // Return the session.
