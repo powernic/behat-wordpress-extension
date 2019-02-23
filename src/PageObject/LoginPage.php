@@ -79,11 +79,12 @@ class LoginPage extends Page
      */
     public function setUserName(string $username)
     {
-        // Verify we are on the login page.
-        $this->verifyLoginPage();
 
         // Get the session.
         $session = $this->verifySession();
+
+        // Verify we are on the login page.
+        $this->verifyLoginPage();
 
         // Get the page.
         $page = $session->getPage();
@@ -137,11 +138,12 @@ class LoginPage extends Page
      */
     public function setUserPassword(string $password)
     {
-        // Verify we are on the login page.
-        $this->verifyLoginPage();
 
         // Get the session.
         $session = $this->verifySession();
+
+        // Verify we are on the login page.
+        $this->verifyLoginPage();
 
         // Get the page.
         $page = $session->getPage();
@@ -192,11 +194,11 @@ class LoginPage extends Page
     public function submitLoginForm()
     {
 
-        // Verify we are on the login page.
-        $this->verifyLoginPage();
-
         // Get the session.
         $session = $this->verifySession();
+
+        // Verify we are on the login page.
+        $this->verifyLoginPage();
 
         // Get the page.
         $page = $session->getPage();
