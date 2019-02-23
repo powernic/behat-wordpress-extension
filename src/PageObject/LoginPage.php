@@ -68,7 +68,7 @@ class LoginPage extends Page
             );
         }
     }
-    
+
     /**
      * Fills the user_login field of the login form with a given username.
      *
@@ -223,7 +223,7 @@ class LoginPage extends Page
     {
         // Get the session.
         $session = $this->getSession();
-        
+
         // Start the session if needed.
         if (! $session->isStarted()) {
             $session->start();
