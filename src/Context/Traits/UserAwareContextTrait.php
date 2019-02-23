@@ -48,10 +48,19 @@ trait UserAwareContextTrait
             $this->logOut();
         }
 
+        // Start a session.
+        $session = $this->getSession();
+
+        // Go to the login form.
         $this->visitPath('wp-login.php?redirect_to=' . urlencode($this->locatePath($redirect_to)));
 
+        // Fill in username.
         $this->login_page->setUserName($username);
+
+        // Fill in password.
         $this->login_page->setUserPassword($password);
+
+        // Submit the login form.
         $this->login_page->submitLoginForm();
 
         if (! $this->loggedIn()) {
