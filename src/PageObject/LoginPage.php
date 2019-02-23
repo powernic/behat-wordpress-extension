@@ -229,11 +229,8 @@ class LoginPage extends Page
             $session->start();
         }
 
-        // Stash the current URL
-        $current_url = $this->getSession->getCurrentUrl();
-
         // If we aren't on a valid page
-        if ('about:blank' === $current_url) {
+        if ('about:blank' === $session->getCurrentUrl()) {
             // Go to the home page
             $session->visit($this->getMinkParameter('base_url'));
         }
