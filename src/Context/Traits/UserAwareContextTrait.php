@@ -90,11 +90,6 @@ trait UserAwareContextTrait
             return false;
         }
 
-        // Dashboard URLs can only be accessed if logged in.
-        if (false !== stripos($session->getCurrentUrl(), 'wp-admin')) {
-            return true;
-        }
-
         $page = $session->getPage();
 
         // Look for a selector to determine if the user is logged in.
