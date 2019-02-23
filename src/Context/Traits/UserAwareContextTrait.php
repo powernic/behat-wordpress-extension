@@ -77,6 +77,8 @@ trait UserAwareContextTrait
         $session = $this->getSession();
         if (! $session->isStarted()) {
             $session->start();
+            // If there isn't a session started the user can't be logged in.
+            return false;
         }
 
         // Dashboard URLs can only be accessed if logged in.
