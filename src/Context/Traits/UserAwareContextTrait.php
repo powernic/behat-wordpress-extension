@@ -5,6 +5,7 @@ namespace PaulGibbs\WordpressBehatExtension\Context\Traits;
 use Behat\Mink\Exception\DriverException;
 use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
+use PaulGibbs\WordpressBehatExtension\PageObject\LoginPage;
 use UnexpectedValueException;
 
 /**
@@ -13,6 +14,24 @@ use UnexpectedValueException;
 trait UserAwareContextTrait
 {
     use BaseAwarenessTrait;
+
+    /**
+     * Login form page object.
+     *
+     * @var LoginPage
+     */
+    public $login_page;
+
+    /**
+     * Constructor.
+     *
+     * @param LoginPage $login_page The page object representing the login page.
+     */
+    public function __construct(LoginPage $login_page)
+    {
+        parent::__construct();
+        $this->login_page = $login_page;
+    }
 
     /**
      * Log in the user.
@@ -29,32 +48,20 @@ trait UserAwareContextTrait
             $this->logOut();
         }
 
+        // Start a session.
+        $session = $this->getSession();
+
+        // Go to the login form.
         $this->visitPath('wp-login.php?redirect_to=' . urlencode($this->locatePath($redirect_to)));
-        $page = $this->getSession()->getPage();
 
-        $node = $page->findField('user_login');
-        try {
-            $node->focus();
-        } catch (UnsupportedDriverActionException $e) {
-            // This will fail for GoutteDriver but neither is it necessary.
-        }
-        // This is to make sure value is set properly.
-        $node->setValue('');
-        $node->setValue($username);
-        $node->setValue($username);
+        // Fill in username.
+        $this->login_page->setUserName($username);
 
-        $node = $page->findField('user_pass');
-        try {
-            $node->focus();
-        } catch (UnsupportedDriverActionException $e) {
-            // This will fail for GoutteDriver but neither is it necessary.
-        }
-        // This is to make sure value is set properly.
-        $node->setValue('');
-        $node->setValue($password);
-        $node->setValue($password);
+        // Fill in password.
+        $this->login_page->setUserPassword($password);
 
-        $page->findButton('wp-submit')->click();
+        // Submit the login form.
+        $this->login_page->submitLoginForm();
 
         if (! $this->loggedIn()) {
             throw new ExpectationException('[W803] The user could not be logged-in.', $this->getSession()->getDriver());
@@ -79,13 +86,30 @@ trait UserAwareContextTrait
         $session = $this->getSession();
         if (! $session->isStarted()) {
             $session->start();
+            // If there isn't a session started the user can't be logged in.
+            return false;
         }
 
         $page = $session->getPage();
 
         // Look for a selector to determine if the user is logged in.
         try {
-            return $page->has('css', 'body.logged-in');
+            // Search for the body element.
+            $body_element = $page->find('css', 'body');
+
+            // If the page doesn't have a body element the user is not logged in.
+            if (null === $body_element) {
+                return false;
+            }
+
+            // The user is logged in if:
+            $is_logged_in = (
+                // The body has a logged-in class (front-end).
+                $body_element->hasClass('logged-in') ||
+                // The body has a wp-admin class (dashboard)
+                $body_element->hasClass('wp-admin')
+            );
+            return $is_logged_in;
         } catch (DriverException $e) {
             // This may fail if the user has not loaded any site yet.
         }
