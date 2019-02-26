@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="img/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
     
     
       
@@ -46,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="assets/stylesheets/application.982221ab.css">
       
-        <link rel="stylesheet" href="assets/stylesheets/application-palette.22915126.css">
+        <link rel="stylesheet" href="assets/stylesheets/application-palette.224b79ff.css">
       
       
         
@@ -57,7 +57,7 @@
       
     
     
-      <script src="assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="assets/javascripts/modernizr.1f0bcf2b.js"></script>
     
     
   <style>
@@ -74,6 +74,34 @@
     
     
       <link rel="stylesheet" href="stylesheets/style.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-88402256-1", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -132,22 +160,19 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            
-              <span class="md-header-nav__topic">
-                WordHat - Behat for WordPress
-              </span>
-              <span class="md-header-nav__topic">
-                News
-              </span>
-            
+            <span class="md-header-nav__topic">
+              WordHat - Behat for WordPress
+            </span>
+            <span class="md-header-nav__topic">
+              News
+            </span>
           
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
           
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -170,7 +195,6 @@
     </div>
   </div>
 </div>
-          
         
       </div>
       
@@ -181,20 +205,18 @@
 
   
 
-
-  <a href="https://github.com/paulgibbs/behat-wordpress-extension/" title="Go to repository" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      WordHat
+<a href="https://github.com/paulgibbs/behat-wordpress-extension/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    WordHat
+  </div>
+</a>
           </div>
         </div>
       
@@ -321,20 +343,18 @@
 
   
 
-
-  <a href="https://github.com/paulgibbs/behat-wordpress-extension/" title="Go to repository" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      WordHat
+<a href="https://github.com/paulgibbs/behat-wordpress-extension/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    WordHat
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -756,8 +776,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#310-2018-12-28" title="3.1.0 - 2018-12-28" class="md-nav__link">
-    3.1.0 - 2018-12-28
+  <a href="#311-2019-02-27" title="[3.1.1] - 2019-02-27" class="md-nav__link">
+    [3.1.1] - 2019-02-27
   </a>
   
     <nav class="md-nav">
@@ -783,6 +803,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#310-2018-12-28" title="3.1.0 - 2018-12-28" class="md-nav__link">
+    3.1.0 - 2018-12-28
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" title="Changed" class="md-nav__link">
+    Changed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" title="Fixed" class="md-nav__link">
+    Fixed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#300-2018-08-09" title="3.0.0 - 2018-08-09" class="md-nav__link">
     3.0.0 - 2018-08-09
   </a>
@@ -791,7 +838,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changed_1" title="Changed" class="md-nav__link">
+  <a href="#changed_2" title="Changed" class="md-nav__link">
     Changed
   </a>
   
@@ -825,14 +872,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_2" title="Changed" class="md-nav__link">
+  <a href="#changed_3" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_1" title="Fixed" class="md-nav__link">
+  <a href="#fixed_2" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -859,7 +906,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_3" title="Changed" class="md-nav__link">
+  <a href="#changed_4" title="Changed" class="md-nav__link">
     Changed
   </a>
   
@@ -886,14 +933,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_4" title="Changed" class="md-nav__link">
+  <a href="#changed_5" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_2" title="Fixed" class="md-nav__link">
+  <a href="#fixed_3" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -920,14 +967,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_5" title="Changed" class="md-nav__link">
+  <a href="#changed_6" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_3" title="Fixed" class="md-nav__link">
+  <a href="#fixed_4" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -947,7 +994,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#fixed_4" title="Fixed" class="md-nav__link">
+  <a href="#fixed_5" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -967,7 +1014,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#fixed_5" title="Fixed" class="md-nav__link">
+  <a href="#fixed_6" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -987,14 +1034,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changed_6" title="Changed" class="md-nav__link">
+  <a href="#changed_7" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_6" title="Fixed" class="md-nav__link">
+  <a href="#fixed_7" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1028,14 +1075,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_7" title="Changed" class="md-nav__link">
+  <a href="#changed_8" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_7" title="Fixed" class="md-nav__link">
+  <a href="#fixed_8" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1055,7 +1102,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changed_8" title="Changed" class="md-nav__link">
+  <a href="#changed_9" title="Changed" class="md-nav__link">
     Changed
   </a>
   
@@ -1082,14 +1129,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_9" title="Changed" class="md-nav__link">
+  <a href="#changed_10" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_8" title="Fixed" class="md-nav__link">
+  <a href="#fixed_9" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1123,14 +1170,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_10" title="Changed" class="md-nav__link">
+  <a href="#changed_11" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_9" title="Fixed" class="md-nav__link">
+  <a href="#fixed_10" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1164,14 +1211,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_11" title="Changed" class="md-nav__link">
+  <a href="#changed_12" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_10" title="Fixed" class="md-nav__link">
+  <a href="#fixed_11" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1198,14 +1245,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_11" title="Fixed" class="md-nav__link">
+  <a href="#fixed_12" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_12" title="Changed" class="md-nav__link">
+  <a href="#changed_13" title="Changed" class="md-nav__link">
     Changed
   </a>
   
@@ -1232,7 +1279,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_13" title="Changed" class="md-nav__link">
+  <a href="#changed_14" title="Changed" class="md-nav__link">
     Changed
   </a>
   
@@ -1259,14 +1306,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_14" title="Changed" class="md-nav__link">
+  <a href="#changed_15" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_12" title="Fixed" class="md-nav__link">
+  <a href="#fixed_13" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1353,8 +1400,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#310-2018-12-28" title="3.1.0 - 2018-12-28" class="md-nav__link">
-    3.1.0 - 2018-12-28
+  <a href="#311-2019-02-27" title="[3.1.1] - 2019-02-27" class="md-nav__link">
+    [3.1.1] - 2019-02-27
   </a>
   
     <nav class="md-nav">
@@ -1380,6 +1427,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#310-2018-12-28" title="3.1.0 - 2018-12-28" class="md-nav__link">
+    3.1.0 - 2018-12-28
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" title="Changed" class="md-nav__link">
+    Changed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" title="Fixed" class="md-nav__link">
+    Fixed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#300-2018-08-09" title="3.0.0 - 2018-08-09" class="md-nav__link">
     3.0.0 - 2018-08-09
   </a>
@@ -1388,7 +1462,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changed_1" title="Changed" class="md-nav__link">
+  <a href="#changed_2" title="Changed" class="md-nav__link">
     Changed
   </a>
   
@@ -1422,14 +1496,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_2" title="Changed" class="md-nav__link">
+  <a href="#changed_3" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_1" title="Fixed" class="md-nav__link">
+  <a href="#fixed_2" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1456,7 +1530,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_3" title="Changed" class="md-nav__link">
+  <a href="#changed_4" title="Changed" class="md-nav__link">
     Changed
   </a>
   
@@ -1483,14 +1557,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_4" title="Changed" class="md-nav__link">
+  <a href="#changed_5" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_2" title="Fixed" class="md-nav__link">
+  <a href="#fixed_3" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1517,14 +1591,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_5" title="Changed" class="md-nav__link">
+  <a href="#changed_6" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_3" title="Fixed" class="md-nav__link">
+  <a href="#fixed_4" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1544,7 +1618,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#fixed_4" title="Fixed" class="md-nav__link">
+  <a href="#fixed_5" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1564,7 +1638,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#fixed_5" title="Fixed" class="md-nav__link">
+  <a href="#fixed_6" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1584,14 +1658,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changed_6" title="Changed" class="md-nav__link">
+  <a href="#changed_7" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_6" title="Fixed" class="md-nav__link">
+  <a href="#fixed_7" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1625,14 +1699,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_7" title="Changed" class="md-nav__link">
+  <a href="#changed_8" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_7" title="Fixed" class="md-nav__link">
+  <a href="#fixed_8" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1652,7 +1726,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#changed_8" title="Changed" class="md-nav__link">
+  <a href="#changed_9" title="Changed" class="md-nav__link">
     Changed
   </a>
   
@@ -1679,14 +1753,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_9" title="Changed" class="md-nav__link">
+  <a href="#changed_10" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_8" title="Fixed" class="md-nav__link">
+  <a href="#fixed_9" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1720,14 +1794,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_10" title="Changed" class="md-nav__link">
+  <a href="#changed_11" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_9" title="Fixed" class="md-nav__link">
+  <a href="#fixed_10" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1761,14 +1835,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_11" title="Changed" class="md-nav__link">
+  <a href="#changed_12" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_10" title="Fixed" class="md-nav__link">
+  <a href="#fixed_11" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1795,14 +1869,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_11" title="Fixed" class="md-nav__link">
+  <a href="#fixed_12" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_12" title="Changed" class="md-nav__link">
+  <a href="#changed_13" title="Changed" class="md-nav__link">
     Changed
   </a>
   
@@ -1829,7 +1903,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_13" title="Changed" class="md-nav__link">
+  <a href="#changed_14" title="Changed" class="md-nav__link">
     Changed
   </a>
   
@@ -1856,14 +1930,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#changed_14" title="Changed" class="md-nav__link">
+  <a href="#changed_15" title="Changed" class="md-nav__link">
     Changed
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fixed_12" title="Fixed" class="md-nav__link">
+  <a href="#fixed_13" title="Fixed" class="md-nav__link">
     Fixed
   </a>
   
@@ -1912,21 +1986,30 @@
   
   <h1 id="news">News<a class="headerlink" href="#news" title="Permanent link">&para;</a></h1>
 <p>WordHat does not yet support WordPress&rsquo; new content editor (Gutenberg). The step definitions for creating content assume, and only work with, the classic WordPress editor.</p>
-<h2 id="310-2018-12-28"><a href="https://github.com/paulgibbs/behat-wordpress-extension/compare/v3.0.0...v3.1.0">3.1.0</a> - 2018-12-28<a class="headerlink" href="#310-2018-12-28" title="Permanent link">&para;</a></h2>
+<h2 id="311-2019-02-27">[3.1.1] - 2019-02-27<a class="headerlink" href="#311-2019-02-27" title="Permanent link">&para;</a></h2>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Travis-CI/Appveyor automated checks have been temporarily removed from the project.</li>
+</ul>
+<h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Contexts, User: attempts made to improve intermittent failures with the log-in action (<a class="gh-link gh-issue" href="https://github.com/paulgibbs/behat-wordpress-extension/issues/47" title="GitHub Issue paulgibbs/behat-wordpress-extension #47">#47</a>).</li>
+</ul>
+<h2 id="310-2018-12-28"><a href="https://github.com/paulgibbs/behat-wordpress-extension/compare/v3.0.0...v3.1.0">3.1.0</a> - 2018-12-28<a class="headerlink" href="#310-2018-12-28" title="Permanent link">&para;</a></h2>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Contexts, User: the &ldquo;given there are users&hellip;&rdquo; step definition now auto-sets the new user&rsquo;s password (<a class="gh-link gh-issue" href="https://github.com/paulgibbs/behat-wordpress-extension/issues/228" title="GitHub Issue paulgibbs/behat-wordpress-extension #228">#228</a>).</li>
 <li>Drivers: Deprecate <code>validateCredentials</code> in <code>UserElement</code> classes; add no-op. Methods will be removed in 4.0.0 (<a class="gh-link gh-issue" href="https://github.com/paulgibbs/behat-wordpress-extension/issues/220" title="GitHub Issue paulgibbs/behat-wordpress-extension #220">#220</a>).</li>
 <li>Remove lazy assumption that a tested site has jQuery (<a class="gh-link gh-issue" href="https://github.com/paulgibbs/behat-wordpress-extension/issues/213" title="GitHub Issue paulgibbs/behat-wordpress-extension #213">#213</a>).</li>
 </ul>
-<h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Website: improve kerning in project logo.</li>
 <li>Features: fix typo in <code>feature/theme.feature</code>.</li>
 <li>Drivers: fix finding content by <code>post_title</code> when sticky posts exist (<a class="gh-link gh-issue" href="https://github.com/paulgibbs/behat-wordpress-extension/issues/218" title="GitHub Issue paulgibbs/behat-wordpress-extension #218">#218</a>).</li>
 </ul>
 <h2 id="300-2018-08-09"><a href="https://github.com/paulgibbs/behat-wordpress-extension/compare/v2.0.0...v3.0.0">3.0.0</a> - 2018-08-09<a class="headerlink" href="#300-2018-08-09" title="Permanent link">&para;</a></h2>
-<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
+<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Contexts, User: change &ldquo;I am logged in as &hellip;&rdquo; step definition to disambiguate between role names and user names. e.g. &ldquo;Given I am logged in as USER&rdquo; vs &ldquo;Given I am logged in as an ROLE&rdquo;.</li>
 <li>Change <code>users</code> settings&rsquo; format in <code>behat.yml</code>. <a href="/configuration/settings.md">Refer to website</a> and/or <code>behat.yml.dist</code>.</li>
@@ -1944,12 +2027,12 @@
 <li>Website: add &ldquo;Open Source&rdquo; page, and misc. SEO improvements.</li>
 <li>Drivers, WP-CLI: in <code>CommentElement::create()</code>, add support for <code>comment_approved</code>, <code>comment_karma</code>, and <code>comment_type</code> arguments.</li>
 </ul>
-<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
+<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>WordHat now requires PHP 7.1+.</li>
 <li>Build tooling and continuous integration reliability improvements.</li>
 </ul>
-<h3 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_2">Fixed<a class="headerlink" href="#fixed_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fix null session when first step asserts a log-in.</li>
 </ul>
@@ -1958,7 +2041,7 @@
 <ul>
 <li><a href="/recipes/errors/overview.md">All PHP exceptions now include an error code</a>.</li>
 </ul>
-<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
+<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li>WP-CLI driver is more reliable at showing error messages from WP-CLI when something goes wrong.</li>
 </ul>
@@ -1969,14 +2052,14 @@
 <li>Minor PHPDoc adjustments.</li>
 <li>Minor website updates (primary navigation changes, and robots.txt).</li>
 </ul>
-<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
+<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Require WP-CLI v1.5+.</li>
 <li>Most of the internals now use strict typehinting.</li>
 <li>Drivers: the &ldquo;path&rdquo; argument is now optional.</li>
 <li>Composer dependencies updated to more recent versions.</li>
 </ul>
-<h3 id="fixed_2">Fixed<a class="headerlink" href="#fixed_2" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_3">Fixed<a class="headerlink" href="#fixed_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Step <code>iAmViewingAuthorArchive</code> now correctly accepts a user role as its parameter.</li>
 </ul>
@@ -1987,7 +2070,7 @@
 <li>Full test coverage for all step definitions and internal WordPress drivers.</li>
 <li>Improved documentation.</li>
 </ul>
-<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
+<h3 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Now requires PHP 7+.</li>
 <li>Internal API adjustments: Contexts now only map step definitions to code, functions used by steps have been moved into traits, and drivers encapsulate <abbr title="Create, Retrieve, Update, Delete">CRUD</abbr> operations).</li>
@@ -1995,28 +2078,28 @@
 <li>Use <a href="https://github.com/phpstan/phpstan">PHPStan</a> for static analysis instead of Scrutinizer-CI.</li>
 <li>New Docker environment for Travis CI; increases build confidence and reliability.</li>
 </ul>
-<h3 id="fixed_3">Fixed<a class="headerlink" href="#fixed_3" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_4">Fixed<a class="headerlink" href="#fixed_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Many issues discovered by completing our own test coverage.</li>
 <li>AppVeyor fixes.</li>
 </ul>
 <h2 id="092-2017-12-18"><a href="https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.1...v0.9.2">0.9.2</a> - 2017-12-18<a class="headerlink" href="#092-2017-12-18" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_4">Fixed<a class="headerlink" href="#fixed_4" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_5">Fixed<a class="headerlink" href="#fixed_5" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fix (more) invalid YAML.</li>
 </ul>
 <h2 id="091-2017-12-14"><a href="https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.9.0...v0.9.1">0.9.1</a> - 2017-12-14<a class="headerlink" href="#091-2017-12-14" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_5">Fixed<a class="headerlink" href="#fixed_5" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_6">Fixed<a class="headerlink" href="#fixed_6" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fix invalid YAML in services.yml.</li>
 </ul>
 <h2 id="090-2017-10-09"><a href="https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.8.0...v0.9.0">0.9.0</a> - 2017-10-09<a class="headerlink" href="#090-2017-10-09" title="Permanent link">&para;</a></h2>
-<h3 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h3>
+<h3 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li>PHPDoc updated/tweaked.</li>
 <li>Rename some <code>PageObjects</code> classes for internal consistency.</li>
 </ul>
-<h3 id="fixed_6">Fixed<a class="headerlink" href="#fixed_6" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_7">Fixed<a class="headerlink" href="#fixed_7" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fix return value when creating users.</li>
 <li>Fix creating content with terms or meta, with WP-CLI driver.</li>
@@ -2032,20 +2115,20 @@
 <ul>
 <li>Finished implementing database content rollback options; consult documentation.</li>
 </ul>
-<h3 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">&para;</a></h3>
+<h3 id="changed_8">Changed<a class="headerlink" href="#changed_8" title="Permanent link">&para;</a></h3>
 <ul>
 <li>WordHat now requires PHP 7.0+.</li>
 <li>Renamed &ldquo;WP-API&rdquo; driver to &ldquo;WP-PHP&rdquo; (backwards-compatible, as long as you have not extended driver classes).</li>
 <li>Website; significant documentation update, especially for on-boarding new users.</li>
 <li><code>Path</code> setting can now be a relative or absolute path. Previously, only absolute paths were supported.</li>
 </ul>
-<h3 id="fixed_7">Fixed<a class="headerlink" href="#fixed_7" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_8">Fixed<a class="headerlink" href="#fixed_8" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Website; mkdocs-material theme update to latest version (accessibility fixes).</li>
 <li>Various PHPDoc improvements and corrections.</li>
 </ul>
 <h2 id="071-2017-08-21"><a href="https://github.com/paulgibbs/behat-wordpress-extension/compare/v0.7.0...v0.7.1">0.7.1</a> - 2017-08-21<a class="headerlink" href="#071-2017-08-21" title="Permanent link">&para;</a></h2>
-<h3 id="changed_8">Changed<a class="headerlink" href="#changed_8" title="Permanent link">&para;</a></h3>
+<h3 id="changed_9">Changed<a class="headerlink" href="#changed_9" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Path</code> setting can now be a relative or absolute path. Previously, only absolute paths were supported.</li>
 </ul>
@@ -2057,11 +2140,11 @@
 <li><code>WidgetContext</code>.</li>
 <li>Add optional <code>redirect_to</code> param to <code>logIn()</code>.</li>
 </ul>
-<h3 id="changed_9">Changed<a class="headerlink" href="#changed_9" title="Permanent link">&para;</a></h3>
+<h3 id="changed_10">Changed<a class="headerlink" href="#changed_10" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Driver interface re-organisation. See <a class="gh-link gh-issue" href="https://github.com/paulgibbs/behat-wordpress-extension/issues/21" title="GitHub Issue paulgibbs/behat-wordpress-extension #21">#21</a>.</li>
 </ul>
-<h3 id="fixed_8">Fixed<a class="headerlink" href="#fixed_8" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_9">Fixed<a class="headerlink" href="#fixed_9" title="Permanent link">&para;</a></h3>
 <ul>
 <li>If a browser window is not open when the <code>BeforeStep</code> event is run, then our call to Selenium2Driver::executeScript() will throw an exception.</li>
 <li>Compatibility with WordPress 4.8.</li>
@@ -2078,14 +2161,14 @@
 <ul>
 <li>Initial support for <a href="https://github.com/sensiolabs/BehatPageObjectExtension">sensiolabs/behat-page-object-extension</a> with support for parts of wp-admin, and the Toolbar.</li>
 </ul>
-<h3 id="changed_10">Changed<a class="headerlink" href="#changed_10" title="Permanent link">&para;</a></h3>
+<h3 id="changed_11">Changed<a class="headerlink" href="#changed_11" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Documentation corrections; website and PHPDoc.</li>
 <li>WP-CLI driver no longer fails if the command returns text through stdout.</li>
 <li>Travis-CI reports job status to our Slack; join us at <a href="https://wordhat.herokuapp.com">https://wordhat.herokuapp.com</a> 😀</li>
 <li>Composer requirements loosened for better compatibility with other projects.</li>
 </ul>
-<h3 id="fixed_9">Fixed<a class="headerlink" href="#fixed_9" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_10">Fixed<a class="headerlink" href="#fixed_10" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Travis-CI tasks now succesfully run on Github forks of the project.</li>
 <li>Attempts made to improve intermittent failures with the log-in action when run with Selenium. Work-in-progress.</li>
@@ -2101,13 +2184,13 @@
 <li>PHPCS rules.</li>
 <li>Scrutinizer-CI integration.</li>
 </ul>
-<h3 id="changed_11">Changed<a class="headerlink" href="#changed_11" title="Permanent link">&para;</a></h3>
+<h3 id="changed_12">Changed<a class="headerlink" href="#changed_12" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Website; switched from Couscous to MkDocs.</li>
 <li>Documentation.</li>
 <li>Travis-CI tweaks.</li>
 </ul>
-<h3 id="fixed_10">Fixed<a class="headerlink" href="#fixed_10" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_11">Fixed<a class="headerlink" href="#fixed_11" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Miscellanous driver fixes, especially WP-CLI over SSH. Again.</li>
 </ul>
@@ -2116,11 +2199,11 @@
 <ul>
 <li>Introduce <a href="https://github.com/sensiolabs/BehatPageObjectExtension">sensiolabs/behat-page-object-extension</a> for future development.</li>
 </ul>
-<h3 id="fixed_11">Fixed<a class="headerlink" href="#fixed_11" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_12">Fixed<a class="headerlink" href="#fixed_12" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Miscellanous driver fixes, especially WP-CLI over SSH.</li>
 </ul>
-<h3 id="changed_12">Changed<a class="headerlink" href="#changed_12" title="Permanent link">&para;</a></h3>
+<h3 id="changed_13">Changed<a class="headerlink" href="#changed_13" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Documentation.</li>
 <li>Website design and performance improvements.</li>
@@ -2132,7 +2215,7 @@
 <li>Miscellanous driver fixes.</li>
 <li>First pass at Contexts.</li>
 </ul>
-<h3 id="changed_13">Changed<a class="headerlink" href="#changed_13" title="Permanent link">&para;</a></h3>
+<h3 id="changed_14">Changed<a class="headerlink" href="#changed_14" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Documentation.</li>
 </ul>
@@ -2143,12 +2226,12 @@
 <li>Website/documentation.</li>
 <li>Database import/export methods to drivers.</li>
 </ul>
-<h3 id="changed_14">Changed<a class="headerlink" href="#changed_14" title="Permanent link">&para;</a></h3>
+<h3 id="changed_15">Changed<a class="headerlink" href="#changed_15" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Adjusted exceptions thrown by DriverManager and Drivers.</li>
 <li>Design adjustments to website.</li>
 </ul>
-<h3 id="fixed_12">Fixed<a class="headerlink" href="#fixed_12" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_13">Fixed<a class="headerlink" href="#fixed_13" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Miscellanous WP-CLI driver fixes.</li>
 </ul>
@@ -2221,7 +2304,6 @@
           Material for MkDocs</a>
       </div>
       
-        
 <div class="md-footer-social">
     
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -2232,21 +2314,15 @@
     
 </div>
 
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="assets/javascripts/application.b806dc00.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
-      
-    
-    
-      
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-88402256-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
       
     
   </body>
