@@ -3,6 +3,10 @@ description: WordHat project news and changelog
 
 WordHat does not yet support WordPress' new content editor (Gutenberg). The step definitions for creating content assume, and only work with, the classic WordPress editor.
 
+## [3.1.1] - 2019-02-27
+### Fixed
+- Further attempts made to improve intermittent failures with the log-in action (#47).
+
 ## [3.1.0] - 2018-12-28
 ### Changed
 - Contexts, User: the "given there are users..." step definition now auto-sets the new user's password (#228).
@@ -204,6 +208,7 @@ WordHat does not yet support WordPress' new content editor (Gutenberg). The step
 ### Added
 - First working version of basic architecture.
 
+[3.1.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v1.2.0...v2.0.0
