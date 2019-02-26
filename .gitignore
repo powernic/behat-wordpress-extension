@@ -9,8 +9,4 @@ npm-debug.log
 wp-cli.yml
 /selenium.log
 
-/build/properties/local.yml
-/build/docker/Dockerfile
-/build/docker/docker-compose.yml
-/build/behat.yml
 /behat.yml
