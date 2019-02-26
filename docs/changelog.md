@@ -4,8 +4,11 @@ description: WordHat project news and changelog
 WordHat does not yet support WordPress' new content editor (Gutenberg). The step definitions for creating content assume, and only work with, the classic WordPress editor.
 
 ## [3.1.1] - 2019-02-27
+### Changed
+- Travis-CI/Appveyor automated checks have been temporarily removed from the project.
+
 ### Fixed
-- Further attempts made to improve intermittent failures with the log-in action (#47).
+- Contexts, User: attempts made to improve intermittent failures with the log-in action (#47).
 
 ## [3.1.0] - 2018-12-28
 ### Changed
