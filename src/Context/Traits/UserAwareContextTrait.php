@@ -73,7 +73,11 @@ trait UserAwareContextTrait
      */
     public function logOut()
     {
-        $this->getElement('Toolbar')->logOut();
+        try {
+            $this->getElement('Toolbar')->logOut();
+        } catch (DriverException $e) {
+            // This may fail if the user has not loaded any site yet.
+        }
     }
 
     /**
