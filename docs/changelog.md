@@ -215,7 +215,7 @@ WordHat does not yet support WordPress' new content editor (Gutenberg). The step
 ### Added
 - First working version of basic architecture.
 
-[3.1.1]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v3.1.1...v3.1.2
+[3.1.2]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v3.1.1...v3.1.2
 [3.1.1]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/paulgibbs/behat-wordpress-extension/compare/v2.0.0...v3.0.0
