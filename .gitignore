@@ -8,4 +8,5 @@ npm-debug.log
 wp-cli.yml
 /selenium.log
 
-/behat.yml
+/tests/app/www
+/tests/artifacts
