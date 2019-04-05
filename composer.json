@@ -55,7 +55,8 @@
   },
   "suggest": {
     "behat/mink-goutte-driver": "Headless Mink driver",
-    "behat/mink-selenium2-driver": "JS-enabled Mink driver (requires Selenium2)"
+    "behat/mink-selenium2-driver": "JS-enabled Mink driver (requires Selenium2)",
+    "genesis/behat-fail-aid": "Get more out of your test suite by getting it to work with you when tests fail."
   },
   "extra": {
     "wordpress-install-dir": "tests/app/www"
