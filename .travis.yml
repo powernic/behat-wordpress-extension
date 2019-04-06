@@ -34,7 +34,7 @@ matrix:
 
 env:
   global:
-    - BEHAT_PARAMS="{\"extensions\":{\"Behat\\\\MinkExtension\":{\"base_url\":\"http://localhost:8000\"}}}"
+    - BEHAT_PARAMS='{\"extensions\":{\"Behat\\\\MinkExtension\":{\"base_url\":\"http://localhost:8000\"},\"PaulGibbs\\\\WordpressBehatExtension\":{\"wpcli\":{\"path\":\"tests/app/www/\"}}}}' vendor/bin/behat --colors --format progress"
     - DEFAULT_COMPOSER_FLAGS="--no-interaction --no-progress --no-suggest --prefer-dist"
     - WP_WEBROOT="tests/app/www/"
 
