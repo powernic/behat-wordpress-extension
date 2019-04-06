@@ -16,5 +16,5 @@ trait BaseAwarenessTrait
      *
      * @return DriverInterface
      */
-    public abstract function getDriver(string $name = ''): DriverInterface;
+    abstract public function getDriver(string $name = ''): DriverInterface;
 }
