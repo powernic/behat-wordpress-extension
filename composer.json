@@ -78,7 +78,7 @@
     ],
 
     "test:behat-ci": [
-      "vendor/bin/behat --colors --format progress"
+      "vendor/bin/behat --colors"
     ],
     "test:behat-local": [
     ]
