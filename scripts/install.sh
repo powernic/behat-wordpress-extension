@@ -1,6 +1,4 @@
 #!/bin/bash
-set -u
-IFS=$'\n\t'
 
 # Paths relative to root.
 
@@ -17,6 +15,9 @@ vendor/bin/wp plugin install disable-gutenberg --path=$WP_WEBROOT --activate
 
 # The default widgets often repeat post titles and confuse Behat.
 for sidebar in $(vendor/bin/wp sidebar list --path=$WP_WEBROOT --format=ids); do
+  echo $sidebar
+  vendor/bin/wp widget list $sidebar --path=$WP_WEBROOT --format=ids
+
   for widget in $(vendor/bin/wp widget list $sidebar --path=$WP_WEBROOT --format=ids); do
     vendor/bin/wp widget delete --path=$WP_WEBROOT $widget
   done;
