@@ -8,4 +8,4 @@ IFS=$'\n\t'
 vendor/bin/wp core install --path=$WP_WEBROOT --url=localhost:8000 \
   --title=wordhat --skip-email \
   --admin_email=wordpress@example.com \
-  --admin_user=wordpress --admin_password=password
+  --admin_user=admin --admin_password=password
