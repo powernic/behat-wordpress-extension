@@ -1,0 +1,64 @@
+language: php
+
+dist: xenial
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - libxml2-utils
+      - xvfb
+  chrome: stable
+
+sudo: false
+
+services:
+  - mysql
+
+php:
+  - 7.1
+
+cache:
+  apt: true
+  directories:
+    - $HOME/.composer/cache/files
+    - $HOME/.npm
+
+git:
+  depth: 3
+  quiet: true
+  submodules: false
+
+matrix:
+  fast_finish: true
+
+env:
+  global:
+    - WP_WEBROOT="tests/app/www/"
+    - BEHAT_PARAMS="{\"extensions\":{\"Behat\\\\MinkExtension\":{\"base_url\":\"http://localhost:8000\"},\"PaulGibbs\\\\WordpressBehatExtension\":{\"path\":\"$WP_WEBROOT\"}}}"
+    - DEFAULT_COMPOSER_FLAGS="--no-interaction --no-progress --no-suggest --prefer-dist"
+
+before_install:
+  - phpenv config-rm xdebug.ini
+  - scripts/before-install.sh
+
+install:
+  - travis_retry composer global require $DEFAULT_COMPOSER_FLAGS hirak/prestissimo
+  - travis_retry composer install $DEFAULT_COMPOSER_FLAGS
+  - travis_retry composer require roots/wordpress ^5.1
+  - npm install selenium-standalone@latest -g
+  - selenium-standalone install
+
+  # Start webserver.
+  - php -S localhost:8000 -t $WP_WEBROOT 2>/dev/null &
+  - sleep 10
+  - scripts/install.sh
+
+before_script:
+  # Start Selenium.
+  - xvfb-run --server-args="-screen 0 1920x1080x24" selenium-standalone start 2>&1 1>/dev/null &
+  - sleep 20
+
+script:
+  - curl -I http://localhost:8000
+  - composer run ci-tests
