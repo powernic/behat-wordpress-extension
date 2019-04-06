@@ -35,7 +35,7 @@ matrix:
 env:
   global:
     - WP_WEBROOT="tests/app/www/"
-    - BEHAT_PARAMS="{\"extensions\":{\"Behat\\\\MinkExtension\":{\"base_url\":\"http://localhost:8000\"},\"PaulGibbs\\\\WordpressBehatExtension\":{\"wpcli\":{\"path\":\"$WP_WEBROOT\"}}}}"
+    - BEHAT_PARAMS="{\"extensions\":{\"Behat\\\\MinkExtension\":{\"base_url\":\"http://localhost:8000\"},\"PaulGibbs\\\\WordpressBehatExtension\":{\"path\":\"$WP_WEBROOT\"}}}"
     - DEFAULT_COMPOSER_FLAGS="--no-interaction --no-progress --no-suggest --prefer-dist"
 
 before_install:
