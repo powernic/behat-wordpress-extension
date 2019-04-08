@@ -20,10 +20,7 @@
   "config": {
     "preferred-install": "dist",
     "sort-packages": true,
-    "autoloader-suffix": "wordhat",
-    "platform": {
-      "php": "7.1"
-    }
+    "autoloader-suffix": "wordhat"
   },
   "autoload": {
     "psr-4": {
@@ -35,7 +32,7 @@
   },
   "require": {
     "behat/behat": "~3.1",
-    "php": "~7.1",
+    "php": ">=7.1 <7.4",
     "sensiolabs/behat-page-object-extension": "~2.1",
     "behat/mink-extension": "~2.3",
 
@@ -78,7 +75,7 @@
     ],
     "test:behat-local": [
       "echo 'Make sure Selenium is running!'",
-      "BEHAT_PARAMS='{\"extensions\":{\"Behat\\\\MinkExtension\":{\"base_url\":\"http://behat.local\"},\"PaulGibbs\\\\WordpressBehatExtension\":{\"site_url\":\"http://behat.local/wp\",\"wpcli\":{\"alias\":\"dev\"}}}}' vendor/bin/behat --colors"
+      "BEHAT_PARAMS='{\"extensions\":{\"Behat\\\\MinkExtension\":{\"base_url\":\"http://behat.local\"},\"PaulGibbs\\\\WordpressBehatExtension\":{\"default_driver\":\"wpcli\",\"site_url\":\"http://behat.local/wp\",\"wpcli\":{\"alias\":\"dev\"}}}}' vendor/bin/behat --colors"
     ]
   }
 }
