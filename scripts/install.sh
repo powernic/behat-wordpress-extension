@@ -9,7 +9,7 @@ vendor/bin/wp core install --path=$WP_WEBROOT --url=localhost:8000 \
   --admin_user=admin --admin_password=password
 
 # Sane defaults.
-vendor/bin/wp theme activate --path=$WP_WEBROOT twentyseventeen
+vendor/bin/wp theme activate --path=$WP_WEBROOT twentysixteen
 vendor/bin/wp rewrite structure --path=$WP_WEBROOT '/%year%/%monthnum%/%postname%/'
 vendor/bin/wp plugin install disable-gutenberg --path=$WP_WEBROOT --activate
 
