@@ -40,7 +40,7 @@
   },
   "require-dev": {
     "behat/mink-goutte-driver": "^1.2",
-    "behat/mink-selenium2-driver": "^1.3",
+    "dmore/behat-chrome-extension": "^1.3",
     "genesis/behat-fail-aid": "^2.0",
     "phpstan/phpstan": "~0.9",
     "squizlabs/php_codesniffer": "~3.0",
@@ -48,7 +48,8 @@
   },
   "suggest": {
     "behat/mink-goutte-driver": "Headless Mink driver",
-    "behat/mink-selenium2-driver": "JS-enabled Mink driver (requires Selenium2)",
+    "behat/mink-selenium2-driver": "JS-enabled Mink driver (requires Selenium)",
+    "dmore/behat-chrome-extension": "JS-enabled Mink driver for Chrome (does not require Selenium)",
     "genesis/behat-fail-aid": "Get more out of your test suite by getting it to work with you when tests fail."
   },
   "extra": {
@@ -71,11 +72,10 @@
     ],
 
     "test:behat-ci": [
-      "vendor/bin/behat --colors --format progress"
+      "vendor/bin/behat --config tests/app/behat-ci.yml --colors --format progress"
     ],
     "test:behat-local": [
-      "echo 'Make sure Selenium is running!'",
-      "BEHAT_PARAMS='{\"extensions\":{\"Behat\\\\MinkExtension\":{\"base_url\":\"http://behat.local\"},\"PaulGibbs\\\\WordpressBehatExtension\":{\"default_driver\":\"wpcli\",\"site_url\":\"http://behat.local/wp\",\"wpcli\":{\"alias\":\"dev\"}}}}' vendor/bin/behat --colors"
+      "vendor/bin/behat --colors"
     ]
   }
 }
