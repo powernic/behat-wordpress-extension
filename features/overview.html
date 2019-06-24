@@ -824,18 +824,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../contributing/build.html" title="Build Process" class="md-nav__link">
-      Build Process
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../credits.html" title="Credits" class="md-nav__link">
       Credits
     </a>
@@ -1030,7 +1018,7 @@
   <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
 <p>WordHat provides WordPress-specific functionality for common testing scenarios that are specific to WordPress sites. We do this by providing a range of <a href="/getting-started/behat-intro.md#contexts">Behat contexts</a> that provide useful step definitions.</p>
 <p>For convenience, our <code>behat.yml.dist</code> configuration template loads all of our contexts by default, though Behat does support <a href="http://behat.org/en/latest/user_guide/configuration/suites.html">more complex configuration</a> for advanced use cases.</p>
-<p>To find out which step definitions are available for your tests, run <code>vendor/bin/behat -dl</code> in your terminal.</p>
+<p>To find out which step definitions are available for your tests, run <code>vendor/bin/behat --definitions i</code> in your terminal.</p>
 <h2 id="drivers">Drivers<a class="headerlink" href="#drivers" title="Permanent link">&para;</a></h2>
 <p>The <code>Given</code> and <code>When</code> steps in a <a href="/getting-started/behat-intro.md#scenarios">Behat Scenario</a> configure a WordPress into a known state for reliable testing. WordHat abstracts this communication between WordPress and itself into a <em>drivers</em> system. Two drivers are currently provided: WP-CLI (the default), and WP-PHP.</p>
 <div class="admonition info">
@@ -1052,7 +1040,7 @@ This is the default and recommended driver, and allows you to <a href="https://m
 <h3 id="site">Site<a class="headerlink" href="#site" title="Permanent link">&para;</a></h3>
 <p>The <code>SiteContext</code> context provides step definitions for activating/deactivating plugins, switching themes, and clearing the object cache.</p>
 <h3 id="tinymce">TinyMCE<a class="headerlink" href="#tinymce" title="Permanent link">&para;</a></h3>
-<p>The <code>EditPost</code> context provides step definitions to manage editing and creating content within wp-admin.</p>
+<p>The <code>EditPost</code> context provides step definitions to manage editing and creating content within wp-admin. At time of writing, no support is yet provided for Gutenberg.</p>
 <h3 id="toolbar">Toolbar<a class="headerlink" href="#toolbar" title="Permanent link">&para;</a></h3>
 <p>The <code>ToolbarContext</code> context provides step definitions to interact with the WordPress Toolbar.</p>
 <h3 id="user">User<a class="headerlink" href="#user" title="Permanent link">&para;</a></h3>

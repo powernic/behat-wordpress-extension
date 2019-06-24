@@ -770,18 +770,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../contributing/build.html" title="Build Process" class="md-nav__link">
-      Build Process
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../credits.html" title="Credits" class="md-nav__link">
       Credits
     </a>
@@ -923,7 +911,7 @@
 <p>If you are new to the project or Behat, we recommend that you first <a href="https://wordhat.info/">read through our documentation</a>. For any questions, feedback, or to contribute, you can get in contact with us via Github or our <a href="https://wordhat.herokuapp.com">Slack</a>.</p>
 <h2 id="browsers">Browsers<a class="headerlink" href="#browsers" title="Permanent link">&para;</a></h2>
 <ul>
-<li>If you are using <a href="http://docs.seleniumhq.org/download/">Selenium</a> to run Javascript tests, and you access your WordPress site over HTTPS, <em>and</em> your site has a self-signed certificate, you will need to manually configure the web browser to accept that certificate.</li>
+<li>If you are using <a href="http://docs.seleniumhq.org/download/">Selenium</a> to run Javascript tests, and you access your WordPress site over HTTPS, <em>and</em> your site is using a self-signed HTTPS certificate, you will need to manually configure the web browser to accept that certificate.</li>
 </ul>
 <h2 id="drivers">Drivers<a class="headerlink" href="#drivers" title="Permanent link">&para;</a></h2>
 <ul>
@@ -934,7 +922,7 @@
 <h2 id="selenium">Selenium<a class="headerlink" href="#selenium" title="Permanent link">&para;</a></h2>
 <ul>
 <li>On a Mac, Selenium is incompatible with the default Apple Java; error messages look like &ldquo;Unsupported major.minor version 52.0&rdquo;. To fix, install <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle Java Platform JDK</a>.</li>
-<li>With Selenium, some environments may require a &ldquo;webdriver&rdquo;; error messages may refer to &ldquo;GeckoWebDriver&rdquo; or &ldquo;ChromeWebDriver&rdquo;, etc. Good solutions include <a href="https://github.com/vvo/selenium-standalone#command-line-interface">vvo/selenium-standalone</a> or <a href="https://github.com/joomla-projects/selenium-server-standalone">joomla-projects/selenium-server-standalone</a>.</li>
+<li>Selenium is fiddly to set up, so we recommend using <a href="https://github.com/vvo/selenium-standalone#command-line-interface">vvo/selenium-standalone</a> to install and run it.</li>
 </ul>
 <h2 id="supported-platforms">Supported platforms<a class="headerlink" href="#supported-platforms" title="Permanent link">&para;</a></h2>
 <ul>
@@ -943,6 +931,7 @@
 <h2 id="virtual-machines-vagrant">Virtual machines (Vagrant)<a class="headerlink" href="#virtual-machines-vagrant" title="Permanent link">&para;</a></h2>
 <ul>
 <li>If you are using a Vagrant-powered virtual machine to run Behat via the <a href="../features/overview.html#wp-cli">WP-CLI driver</a>, you will need to <code>vagrant ssh</code> into the box once. This will set up password-less authentication; otherwise, WordHat will prompt you for the SSH password frequently.</li>
+<li>If you are using the WP-CLI driver to <a href="https://make.wordpress.org/cli/handbook/running-commands-remotely/">connect to a Vagrant-powered WordPress site over SSH</a>, you will probably have better performance by switching to use the WP-PHP driver. This is because <a href="https://github.com/wp-cli/wp-cli/pull/5235">WP-CLI is slow at opening SSH connections to Vagrant boxes</a>.</li>
 </ul>
 <h2 id="wordpress">WordPress<a class="headerlink" href="#wordpress" title="Permanent link">&para;</a></h2>
 <ul>

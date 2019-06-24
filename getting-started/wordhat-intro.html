@@ -742,18 +742,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../contributing/build.html" title="Build Process" class="md-nav__link">
-      Build Process
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../credits.html" title="Credits" class="md-nav__link">
       Credits
     </a>
@@ -868,7 +856,7 @@
 <p>Otherwise, if you are unsure how to proceed, first check the <a href="/recipes/faq.md">FAQ</a> and the other recipe pages in the menu. These will be added to when we receive repeat questions. If you encounter a bug, have a suggestion, or would like to help the project grow, please get in contact via <a href="https://github.com/paulgibbs/behat-wordpress-extension">Github</a> or our <a href="https://wordhat.herokuapp.com">Slack</a>.</p>
 <h2 id="browser-automation">Browser automation<a class="headerlink" href="#browser-automation" title="Permanent link">&para;</a></h2>
 <p>One of the fun things about using Behat is seeing it control your web browser and navigating your site. Behat relies on a library called <a href="http://mink.behat.org/en/latest/">Mink</a> to interface with your web browser. Mink has its own driver system, with <a href="http://mink.behat.org/en/latest/guides/drivers.html#driver-feature-support">each driver supporting a different combination of browser features</a>.</p>
-<p>Some Mink drivers run headless web browsers (e.g. Goutte), and these tend to be the fastest, though notably, most do not support Javascript. WordHat&rsquo;s sample configuration file is configured to use <a href="http://www.seleniumhq.org/">Selenium</a>, which supports a broad range of browser features for most use cases. Selenium is fiddly to set up, so we recommend using <a href="https://github.com/vvo/selenium-standalone#command-line-interface">vvo/selenium-standalone</a>.</p>
+<p>Some Mink drivers run headless web browsers (e.g. Goutte), and these tend to be the fastest, though notably, most do not support Javascript. WordHat&rsquo;s sample configuration file is configured to use Google Chrome by default, which supports a broad range of browser features for most use cases.</p>
 <p>For tests requiring Javascript interactions, mark the scenario or feature with the <code>@javascript</code> <a href="http://behat.org/en/latest/user_guide/organizing.html#tags">tag</a>.</p>
 <h2 id="your-first-tests">Your first tests<a class="headerlink" href="#your-first-tests" title="Permanent link">&para;</a></h2>
 <p>To confirm your Behat set up is working, copy any one (or all!) of WordHat&rsquo;s own tests from <code>vendor/paulgibbs/behat-wordpress-extension/features/*.feature</code> into your project&rsquo;s <code>features/</code> folder.</p>

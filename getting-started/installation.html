@@ -749,18 +749,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../contributing/build.html" title="Build Process" class="md-nav__link">
-      Build Process
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../credits.html" title="Credits" class="md-nav__link">
       Credits
     </a>
@@ -879,8 +867,8 @@
   
   <h1 id="installing-wordhat">Installing WordHat<a class="headerlink" href="#installing-wordhat" title="Permanent link">&para;</a></h1>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
-<p>WordHat requires <a href="https://php.net/">PHP</a> (version 7.1+), <a href="https://getcomposer.org/">Composer</a>, and a <a href="https://wordpress.org/">WordPress</a> site to test (version 4.8+).</p>
-<p>We strongly recommend using <a href="https://wp-cli.org/">WP-CLI</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> (version 2.1.0+), and <a href="http://www.seleniumhq.org/">Selenium</a><sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> to help with browser automation. Selenium is fiddly to set up, so we recommend using <a href="https://github.com/vvo/selenium-standalone#command-line-interface">vvo/selenium-standalone</a>, which requires the <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Platform JDK</a>.</p>
+<p>WordHat requires <a href="https://php.net/">PHP</a> (version 7.2+), <a href="https://getcomposer.org/">Composer</a>, and a <a href="https://wordpress.org/">WordPress</a> site to test (version 4.8+).</p>
+<p>We recommend using <a href="https://wp-cli.org/">WP-CLI</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> (version 2.1.0+).</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <ol>
 
@@ -890,7 +878,7 @@ cd project</code></pre>
 </li>
 
 <li>Tell <a href="https://getcomposer.org/">Composer</a> to download WordHat:
-    <pre><code>composer require --dev paulgibbs/behat-wordpress-extension behat/mink-goutte-driver behat/mink-selenium2-driver</code></pre>
+    <pre><code>composer require --dev paulgibbs/behat-wordpress-extension behat/mink-goutte-driver dmore/behat-chrome-extension</code></pre>
 </li>
 
 <li>Copy WordHat's sample configuration file into your <code>project</code> folder and rename it:
@@ -913,7 +901,7 @@ cd project</code></pre>
 </li>
 
 <li>To confirm that everything is set up correctly, run:
-    <pre><code>vendor/bin/behat -dl</code></pre>
+    <pre><code>vendor/bin/behat --definitions i</code></pre>
     If it worked, you will see a list of text that looks a little like the following (but much longer):
     <pre><code>Given I am an anonymous user
 Given I am not logged in
@@ -931,9 +919,6 @@ Given I am logged in as :name
 <ol>
 <li id="fn:1">
 <p>The WP-CLI executable <em>must</em> be named <code>wp</code> and be within your system&rsquo;s <a href="https://en.wikipedia.org/wiki/PATH_(variable)" id="WP-CLI">$PATH</a>.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>Selenium is recommended for testing <a href="http://mink.behat.org/en/latest/guides/drivers.html" id="SEL">websites that require Javascript</a>. Behat requires the <a href="https://packagist.org/packages/behat/mink-selenium2-driver">Mink Selenium2 library</a>, which we include in the installation instructions above.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
