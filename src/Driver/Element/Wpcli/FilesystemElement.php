@@ -21,7 +21,7 @@ class FilesystemElement extends BaseElement
             return;
         }
 
-        $delete_cmd = sprintf('@unlink(%s);', escapeshellarg($abspath));
+        $delete_cmd = sprintf('"@unlink(\'%s\');"', $abspath );
         $this->drivers->getDriver()->wpcli('eval', $delete_cmd, ['--skip-wordpress']);
     }
 }
