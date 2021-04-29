@@ -1,5 +1,5 @@
 {
-  "name": "paulgibbs/behat-wordpress-extension",
+  "name": "powernic/behat-wordpress-extension",
   "type": "behat-extension",
   "description": "WordHat is a Behat extension for WordPress. It provides WordPress-specific functionality for common testing scenarios specific to WordPress sites.",
   "keywords": [
@@ -15,6 +15,10 @@
       "name": "Paul Gibbs",
       "email": "djpaul@gmail.com",
       "homepage": "https://byotos.com"
+    }, 
+    {
+      "name": "Efimenko Nikolai",
+      "email": "powernic1@gmail.com"
     }
   ],
   "config": {
