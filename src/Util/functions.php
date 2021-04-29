@@ -58,6 +58,7 @@ function stripTagsAndContent($html)
     }
 
     $doc = new DOMDocument();
+    $html = mb_convert_encoding($html, 'HTML-ENTITIES', "UTF-8");
     $doc->loadHTML("<div>{$html}</div>");
 
     $container = $doc->getElementsByTagName('div')->item(0);
